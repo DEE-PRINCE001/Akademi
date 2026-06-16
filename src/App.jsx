@@ -3,10 +3,21 @@ import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Sidebar from './components/Layout/Sidebar'
 import Test from './components/Layout/Test'
-import Dashboard from './pages/Dashboard'
-import SearchBox from './components/inputs/SearchBox'
-import TextArea from './components/inputs/TextArea'
+import Dashboard from './pages/dashboard/Dashboard'
+import StudentPage from './pages/student/StudentPage'
+import ChatPage from './pages/chat/ChatPage'
+import EventPage from './pages/event/EventPage'
+import FinancePage from './pages/finance/FinancePage'
+import FoodPage from './pages/food/FoodPage'
+import LatestActivityPage from './pages/latestactivity/LatestActivityPage'
+import TeacherPage from './pages/teacher/TeacherPage'
+import UserPage from './pages/user/UserPage'
+
+
+
+
 import { NavContext } from './contexts/NavContext'
+
 
 // import reactLogo from './assets/react.svg'
 
@@ -19,19 +30,50 @@ function App() {
   return (
     <>
     <NavContext.Provider value={{ sideBarOpened, setSideBarOpened, profileOpened, setProfileOpened }}>
-      <Sidebar>
         <Routes>
-          <Route path='/' element={<Dashboard/>} />
-          <Route path= '/students' element ={<Test/>} />
-          <Route path= '/teachers' element ={<Test/>} />
-          <Route path= '/event' element ={<Test/>} />
-          <Route path= '/finance' element ={<Test/>} />
-          <Route path= '/food' element ={<Test/>} />
-          <Route path= '/user' element ={<Test/>} />
-          <Route path= '/chat' element ={<Test/>} />
-          <Route path= '/latest-activity' element ={<Test/>} />
+        
+          <Route path='/' element={
+            <Sidebar doublescreen={true} >
+              <Dashboard/>
+              </Sidebar>
+              } />
+
+        
+            <Route path= '/students' element ={
+                       <Sidebar>
+                         <StudentPage/>
+                       </Sidebar>
+                       } />
+
+            <Route path= '/teachers' element ={<Sidebar>
+              <TeacherPage/>
+            </Sidebar>} />
+
+            <Route path= '/event' element ={<Sidebar>
+              <EventPage/>
+            </Sidebar>} />
+
+            <Route path= '/finance' element ={<Sidebar>
+              <FinancePage/>
+            </Sidebar>} />
+
+            <Route path= '/food' element ={<Sidebar>
+              <FoodPage/>
+            </Sidebar>} />
+
+            <Route path= '/user' element ={<Sidebar>
+              <UserPage/>
+            </Sidebar>} />
+
+            <Route path= '/chat' element ={<Sidebar>
+              <ChatPage/>
+            </Sidebar>} />
+
+            <Route path= '/latest-activity' element ={<Sidebar>
+              <LatestActivityPage/>
+            </Sidebar>} />
+            
         </Routes>  
-      </Sidebar>
     </NavContext.Provider>
     </>
   )

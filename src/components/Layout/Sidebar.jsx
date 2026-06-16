@@ -9,7 +9,7 @@ import { NavContext } from '../../contexts/NavContext'
 
 
 
-const Sidebar = ({children}) => {
+const Sidebar = ({children, doublescreen=false}) => {
     const {sideBarOpened, 
             setSideBarOpened, 
             profileOpened, 
@@ -41,9 +41,9 @@ const Sidebar = ({children}) => {
                 <p className='text-grey-300 text-[8px]'>Admin</p>
 
             </div>
-            <CircularIcon variant={"empty"}/>
+            <CircularIcon variant={"empty"}>W</CircularIcon>
 
-            </div>
+        </div>
         <div ref={sideRef} className={`min-h-screen ${sideBarOpened? "flex translate-0 absolute z-10" : "-translate-x-full absolute transition"} z-10 transition-all duration-400 md:static md:translate-x-0 md:flex md:w-70 3xl:w-85 bg-primary font-sans mt-0`}>
             <div className='flex flex-col p-8 w-full pr-0 space-y-2'>
                 <div className="flex space-x-5 items-center mb-10">
@@ -53,7 +53,7 @@ const Sidebar = ({children}) => {
                 </div>
 
                 {sidebardata.map((x) => 
-                <NavLink to={x.to} className={({isActive}) => `px-5 py-2.5 w-full rounded-l-3xl ${isActive? "bg-white text-primary hover:text-blue-950" : "bg-primary text-background hover:bg-blue-950"}`}>
+                <NavLink key={x.text} to={x.to} className={({isActive}) => `px-5 py-2.5 w-full rounded-l-3xl ${isActive? "bg-white text-primary hover:text-blue-950" : "bg-primary text-background hover:bg-blue-950"}`}>
                     {({isActive}) => 
                         (<div className='flex space-x-5 justify-start items-center'>
                             <img src={isActive ? x.iconblue : x.icon} alt="teacher_icon" className='h-[25px] w-[30px]'/>
@@ -64,7 +64,12 @@ const Sidebar = ({children}) => {
 
             </div>
         </div>
+
+        
+        <div className={` ${ !doublescreen? "flex-1 flex flex-col w-full p-3 md:p-8 pb-0 min-h-screen space-y-5" : "w-full"} `}>
         {children}
+        </div>
+        
     </div>
   )
 }

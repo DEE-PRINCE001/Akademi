@@ -20,11 +20,12 @@ const CircularIcon = ({
     empty: "bg-grey-200 hover:bg-primary",
     neutral: "bg-white shadow shadow-[#BF156C0D] text-grey-300 hover:bg-primary hover:text-white",
   
-    _onAccent: "text-primary-text"
+    details: "bg-background text-primary"
   };
 
   const sizeClasses = {
-    sm: "w-6 h-6 text-xs",
+    sm: "w-7 h-7 text-xs",
+    xm: "w-9 h-9 text-xs",
     md: "w-10 h-10 text-base p-2",
     lg: "w-14 h-14 text-lg p-3"
   };

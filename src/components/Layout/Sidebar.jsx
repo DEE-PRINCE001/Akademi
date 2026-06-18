@@ -32,8 +32,8 @@ const Sidebar = ({children, doublescreen=false}) => {
     }, [])
 
   return (
-    <div className='flex bg-background'>
-        <div className={`absolute ${profileOpened? "flex" : "hidden"} top-4 right-4 md:right-10 md:top-8 md:flex items-center space-x-3`}>
+    <div className='flex bg-background h-full'>
+        <div className={`absolute ${profileOpened? "flex" : "hidden"} top-4 right-4 md:right-8 md:top-8 md:flex items-center space-x-4 z-50`}>
             <CircularIcon variant={"neutral"} icon={<Bell className='text-inherit'/>}/>
             <CircularIcon variant={"neutral"} icon={<Settings size={20} className='text-inherit'/>}/>
             <div className='flex flex-col space-y-1 items-end'>
@@ -44,7 +44,9 @@ const Sidebar = ({children, doublescreen=false}) => {
             <CircularIcon variant={"empty"}>W</CircularIcon>
 
         </div>
-        <div ref={sideRef} className={`min-h-screen ${sideBarOpened? "flex translate-0 absolute z-10" : "-translate-x-full absolute transition"} z-10 transition-all duration-400 md:static md:translate-x-0 md:flex md:w-70 3xl:w-85 bg-primary font-sans mt-0`}>
+        <div ref={sideRef} className={`h-screen ${sideBarOpened? "flex translate-0 absolute z-10" : "-translate-x-full absolute transition"} z-10 
+                transition-all duration-400 md:static md:translate-x-0 md:flex md:w-70 
+                3xl:w-85 bg-primary font-sans mt-0 overflow-y-auto`}>
             <div className='flex flex-col p-8 w-full pr-0 space-y-2'>
                 <div className="flex space-x-5 items-center mb-10">
                     <div className='bg-secondary text-white font-bold text-3xl 3xl:text-4xl 
@@ -66,7 +68,7 @@ const Sidebar = ({children, doublescreen=false}) => {
         </div>
 
         
-        <div className={` ${ !doublescreen? "flex-1 flex flex-col w-full p-3 md:p-8 pb-0 min-h-screen space-y-5" : "w-full"} `}>
+        <div className={` ${ !doublescreen? "flex-1 flex flex-col w-full p-3 md:p-8 pb-0 min-h-screen space-y-5" : "flex-1 h-screen"} `}>
         {children}
         </div>
         

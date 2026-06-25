@@ -8,6 +8,8 @@ import { Menu, Plus, Triangle } from 'lucide-react';
 import GeneralHeader from '../../components/Layout/GeneralHeader';
 import Button from '../../components/labels/Button';
 import { NavContext } from '../../contexts/NavContext';
+import larrow from '../../assets/icons/arrow-left.svg'
+import rarrow from '../../assets/icons/arrow-right.svg'
 
 const students = [
   {
@@ -85,12 +87,13 @@ const students = [
 
 const StudentPage = () => {
 
-  const {sideBarOpened, 
-                    setSideBarOpened, 
-                    profileOpened, 
-                    setProfileOpened} = useContext(NavContext);
+  const { sideBarOpened,
+    setSideBarOpened,
+    profileOpened,
+    setProfileOpened } = useContext(NavContext);
   return (
-    <div className='flex-1 flex flex-col space-y-3 md:space-y-7 min-h-full w-auto m-0'>
+    <div className='flex-1 flex flex-col space-y-3 md:space-y-7 h-full overflow-auto w-auto m-0'>
+
       <GeneralHeader title={"Students"} />
       <div className='flex  flex-col-reverse md:flex-row gap-y-3 md:gap-y-0 items-center md:justify-between'>
         <SearchBox size="mb" />
@@ -98,7 +101,7 @@ const StudentPage = () => {
 
           <Menu size={40} className="md:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
           <div className='flex space-x-2'>
-            <Button rightIcon={<div className='w-0 h-0 border-l-8 border-r-8 border-t-10 
+            <Button rightIcon={<div className='w-0 h-0 border-l-6 border-r-6 border-t-8 
             border-l-transparent border-r-transparent border-t-primary'></div>}
               onClick={() => alert("Sort not implemented yet, Calm down")} />
 
@@ -108,17 +111,32 @@ const StudentPage = () => {
             >New Student</Button>
           </div>
         </div>
-
       </div>
 
-      <div className='max-w-full bg-white rounded-xl overflow-x-auto'>
-        <Header selected={students.selected} />
+      <div className='max-w-full bg-white rounded-xl overflow-x-auto scrollbar-thin'>
+        <div className='w-'>
+
+          <Header selected={students.selected} />
+        </div>
         {students.map((student) =>
           <StudentRow key={student.id} selected={student.selected} name={student.name}
             studentId={student.studentId} city={student.city} date={student.date}
             grade={student.grade} parentName={student.parent} />
         )}
       </div>
+
+      <div className='flex justify-between items-center w-full mb-4'>
+          <div className='text-grey-300 text-xs'>
+            Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
+          </div>
+          <div className='flex space-x-1 items-center'>
+            <img src={larrow} alt="" className='w-3 h-3 mr-2' />
+            <CircularIcon variant='emptyWithStroke' size='sm'>1</CircularIcon>
+            <CircularIcon variant='emptyWithStroke' size='sm'>2</CircularIcon>
+            <CircularIcon variant='emptyWithStroke' size='sm'>3</CircularIcon>
+            <img src={rarrow} alt="" className='w-3 h-3 ml-2' />
+          </div>
+        </div>
     </div>
   )
 }

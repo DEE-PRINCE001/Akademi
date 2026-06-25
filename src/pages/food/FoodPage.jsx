@@ -4,7 +4,9 @@ import GeneralHeader from '../../components/Layout/GeneralHeader'
 const FoodPage = () => {
   return (
     <div>
+      <div>        
         <GeneralHeader title={"Food"}/>
+      </div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = ({selected}) => {
   return (
-    <div className="
+    <div className="w-full
     grid
     grid-cols-[30px_2.5fr_1fr_1.3fr_1.5fr_1fr_1fr_1fr_40px]
     gap-x-5

@@ -18,6 +18,8 @@ const CircularIcon = ({
     accent: "bg-accent text-primary hover:bg-accent/90",
     primarydeep: "bg-primary-text text-white hover:bg-primary-text/90",
     empty: "bg-grey-200 hover:bg-primary",
+    danger: "bg-danger hover:bg-danger/80",
+    emptyWithStroke: "text-grey-300 border border-grey-300 hover:bg-primary hover:text-white hover:border-0",
     neutral: "bg-white shadow shadow-[#BF156C0D] text-grey-300 hover:bg-primary hover:text-white",
   
     details: "bg-background text-primary"
@@ -27,7 +29,8 @@ const CircularIcon = ({
     sm: "w-7 h-7 text-xs",
     xm: "w-9 h-9 text-xs",
     md: "w-10 h-10 text-base p-2",
-    lg: "w-14 h-14 text-lg p-3"
+    lg: "w-14 h-14 text-lg p-3",
+    xl: "w-20 h-20 text-lg p-3"
   };
 
   const currentVariant = variantClasses[variant] || '';

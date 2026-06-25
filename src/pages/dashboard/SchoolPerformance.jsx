@@ -41,13 +41,13 @@ const SchoolPerformance = ({spdata}) => {
                 }}>
                   <defs>
                     <linearGradient id='yellowFill' x1={"0"} y1={"0"} x2={"0"} y2={"1"}>
-                      <stop offset={"5%"} stopColor='#FCC43E' stopOpacity={0.3}/>
+                      <stop offset={"5%"} stopColor='#FCC43E' stopOpacity={0.5}/>
                       <stop offset={"95%"} stopColor='#FCC43E' stopOpacity={0}/>
 
                     </linearGradient>
                     
                     <linearGradient id='redFill' x1={"0"} y1={"0"} x2={"0"} y2={"1"}>
-                      <stop offset={"5%"} stopColor='#FB7D5B' stopOpacity={0.3}/>
+                      <stop offset={"5%"} stopColor='#FB7D5B' stopOpacity={0.5}/>
                       <stop offset={"95%"} stopColor='#FB7D5B' stopOpacity={0}/>
 
                     </linearGradient>

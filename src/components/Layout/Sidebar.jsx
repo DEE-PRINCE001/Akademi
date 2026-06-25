@@ -32,8 +32,8 @@ const Sidebar = ({children, doublescreen=false}) => {
     }, [])
 
   return (
-    <div className='flex bg-background h-full'>
-        <div className={`absolute ${profileOpened? "flex" : "hidden"} top-4 right-4 md:right-8 md:top-8 md:flex items-center space-x-4 z-50`}>
+    <div className='flex bg-background w-full h-full'>
+        <div className={`absolute ${profileOpened? "flex" : "hidden"} top-4.5 right-3 md:right-8 md:top-8 md:flex items-center space-x-4 z-40`}>
             <CircularIcon variant={"neutral"} icon={<Bell className='text-inherit'/>}/>
             <CircularIcon variant={"neutral"} icon={<Settings size={20} className='text-inherit'/>}/>
             <div className='flex flex-col space-y-1 items-end'>
@@ -41,7 +41,7 @@ const Sidebar = ({children, doublescreen=false}) => {
                 <p className='text-grey-300 text-[8px]'>Admin</p>
 
             </div>
-            <CircularIcon variant={"empty"}>W</CircularIcon>
+            <CircularIcon variant={"empty"} onClick={() => setProfileOpened(false)} className='invisible md:visible' >A</CircularIcon>
 
         </div>
         <div ref={sideRef} className={`h-screen ${sideBarOpened? "flex translate-0 absolute z-10" : "-translate-x-full absolute transition"} z-10 
@@ -68,7 +68,7 @@ const Sidebar = ({children, doublescreen=false}) => {
         </div>
 
         
-        <div className={` ${ !doublescreen? "flex-1 flex flex-col w-full p-3 md:p-8 pb-0 min-h-screen space-y-5" : "flex-1 h-screen"} `}>
+        <div className={` ${ !doublescreen? "flex-1 flex flex-col p-3 md:p-8 pb-0 md:pb-2 h-screen space-y-5" : "flex-1 h-screen"} `}>
         {children}
         </div>
         

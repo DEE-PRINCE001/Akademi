@@ -3,7 +3,7 @@ import CircularIcon from '../../components/labels/CircularIcon';
 import { Mail, MoreHorizontal, Printer, User } from 'lucide-react';
 import { Phone } from 'lucide-react';
 
-const UnpaidStudentRow = ({ name, studentId, price, grade = "VII A" }) => {
+const UnpaidStudentRow = ({ name, studentId, price, grade = "VII A", printer}) => {
 
   const handleClick = () => {
     alert("There is nothing to print or show yet");
@@ -56,9 +56,9 @@ const UnpaidStudentRow = ({ name, studentId, price, grade = "VII A" }) => {
 
         {/* Print and Action */}
         <div className='flex justify-between'>
-          <CircularIcon variant='neutral' size='xm' as='button' onClick={handleClick} 
+          {printer && <CircularIcon variant='neutral' size='xm' as='button' onClick={handleClick} 
             icon={<Printer className='text-inherit' size={20} />}
-          />
+          />}
           <CircularIcon variant='neutral' size='xm' onClick={handleClick}
             icon={<MoreHorizontal className='text-inherit' size={20} />}
           />

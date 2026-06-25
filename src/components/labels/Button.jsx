@@ -3,9 +3,9 @@ import React from 'react'
 const Button = ({children, leftIcon, rightIcon, size, colors, className, ...props}) => {
   return (
     <div>
-        <button className={`flex space-x-2 items-center justify-center border-2 
+        <button className={`flex space-x-3 items-center justify-center border-2
         ${colors || "hover:bg-primary/10 border-primary text-primary"} ${className} rounded-full 
-        ${size || "p-2.5 w-38 text-sm"}`} {...props} >
+        ${size || "p-2.5 w-35 text-xs"}`} {...props} >
             {leftIcon? leftIcon: ""}
             <p>{children || "Newest"}</p> 
             {rightIcon? rightIcon : ''

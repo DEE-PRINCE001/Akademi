@@ -14,6 +14,8 @@ import StudentRow from './StudentRow'
 import Button from '../../components/labels/Button'
 import MessageRow from './MessageRow'
 import FoodMenu from './FoodMenu'
+import { SchoolCalendar } from './SchoolCalendar'
+import { SchoolFinanceChart } from './SchoolFinance'
 
 const Dashboard = () => {
 
@@ -21,6 +23,13 @@ const Dashboard = () => {
     setSideBarOpened,
     profileOpened,
     setProfileOpened } = useContext(NavContext);
+
+  const marchEvents = {
+    "2021-03-05": { bgHighlight: true },
+    "2021-03-08": { status: "primary" },
+    "2021-03-20": { status: "accent" },
+    "2021-03-23": { status: "secondary" }
+  };
 
   const analyticsData = [
     {
@@ -92,7 +101,7 @@ const Dashboard = () => {
   ]
   return (
     // <div className={`flex-1 lg:flex m-0 w-auto`} >
-    <div className={`lg:flex`} >
+    <div className={`lg:flex h-full`} >
       <div className='relative flex-1 flex flex-col w-full px-2 md:p-8 md:pt-0 
             pb-0 h-screen space-y-5 overflow-y-auto scrollbar-none'>
         <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full bg-background/50 backdrop-blur-xl z-1'>
@@ -136,22 +145,26 @@ const Dashboard = () => {
 
         {/* Calenndar and finance */}
         <div className='flex space-x-5 w-full text-primary-text'>
-          <div className='flex flex-col bg-white w-full h-70 rounded-lg p-5 overflow-auto'>
-            <div className='flex justify-between'>
+          <div className='flex flex-col bg-white w-full h-90 rounded-lg overflow-x-auto overflow-y-hidden'>
+            {/* <div className='flex justify-between'>
               <h1 className='text-primary-text text-lg font-bold'>School Calendar</h1>
               <p>Last week</p>
             </div>
-            <div></div>
+            <div> */}
+              <SchoolCalendar highlightedDays={marchEvents} />
+            {/* </div> */}
 
           </div>
 
 
-          <div className='flex flex-col bg-white w-full h-70 rounded-lg p-5 overflow-auto'>
-            <div className='flex justify-between'>
+          <div className='flex flex-col bg-white w-full h-90 rounded-lg overflow-x-auto'>
+            {/* <div className='flex justify-between'>
               <h1 className='text-primary-text text-lg font-bold'>School Finance</h1>
               <p className=''>Last week</p>
             </div>
-            <div></div>
+            <div> */}
+              <SchoolFinanceChart/>
+            {/* </div> */}
 
           </div>
 
@@ -165,11 +178,13 @@ const Dashboard = () => {
             <h1 className='text-primary-text text-lg font-bold'>Unpaid Student Intuition</h1>
           </div>
 
-          <UnpaidStudentRow />
-          <UnpaidStudentRow />
-          <UnpaidStudentRow />
-          <UnpaidStudentRow />
-          <UnpaidStudentRow />
+
+          <UnpaidStudentRow printer />
+          <UnpaidStudentRow printer />
+          <UnpaidStudentRow printer />
+          <UnpaidStudentRow printer />
+          <UnpaidStudentRow printer />
+
 
 
           <div></div>
@@ -181,11 +196,11 @@ const Dashboard = () => {
       {/* </div> */}
 
       {/* the rightbar */}
-      <div className='relative bg-white h-screen'>
-        <div className='sticky top-0 bg-transparent backdrop-blur-xl h-23'></div>
+      <div className='relative bg-white h-full flex flex-col justify-between'>
+        <div className='sticky top-0 bg-transparent backdrop-blur-xl h-60'></div>
 
         <div className='hidden relative lg:flex flex-col w-70 p-6
-            space-y-10 3xl:w-85 h-full overflow-y-auto scrollbar-none z-1'>
+            space-y-10 3xl:w-85 overflow-y-auto scrollbar-none z-1'>
           {/* <div className='flex flex-col space-y-8'> */}
           <div className='flex flex-col space-y-5'>
             <div className='flex justify-between'>

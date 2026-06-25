@@ -21,7 +21,7 @@ const GeneralHeader = ({title, searchBox=false}) => {
                 <div className={`relative flex flex-col space-y-2 lg:flex-row justify-between lg:items-center w-full`}>
                     <h1 className='text-2xl text-primary-text font-bold'>{title || "title not set"}</h1>
     
-                    <CircularIcon variant={"primary"} children="A" className='absolute text-white top-1 right-1 md:hidden' 
+                    <CircularIcon variant={"primary"} children="A" className='absolute text-white top-1 right-1 z-50 md:hidden' 
                     onClick={() => setProfileOpened(!profileOpened)}/>
                     
                     {searchBox && <div className='flex justify-center space-x-5 items-center mt-5 mb-0 lg:hidden'>

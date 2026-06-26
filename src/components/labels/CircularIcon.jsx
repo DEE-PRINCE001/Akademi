@@ -13,7 +13,7 @@ const CircularIcon = ({
   const baseClasses = "rounded-full flex items-center justify-center font-bold transition-all";
   
   const variantClasses = {
-    primary: "bg-primary hover:bg-primary/90",
+    primary: "bg-primary text-white hover:bg-primary/90",
     secondary: "bg-secondary hover:bg-secondary/90",
     accent: "bg-accent text-primary hover:bg-accent/90",
     primarydeep: "bg-primary-text text-white hover:bg-primary-text/90",
@@ -22,7 +22,7 @@ const CircularIcon = ({
     emptyWithStroke: "text-grey-300 border border-grey-300 hover:bg-primary hover:text-white hover:border-0",
     neutral: "bg-white shadow shadow-[#BF156C0D] text-grey-300 hover:bg-primary hover:text-white",
   
-    details: "bg-background text-primary"
+    details: "bg-background text-primary hover:bg-primary-text hover:text-white"
   };
 
   const sizeClasses = {

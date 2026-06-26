@@ -1,6 +1,6 @@
 import { Calendar, Clock } from 'lucide-react'
 import React from 'react'
-import CircularIcon from '../../components/labels/CircularIcon'
+import CircularIcon from '../labels/CircularIcon'
 
 const ScheduleCard = ({color="primary", topic, course, date, time}) => {
   return (

@@ -12,6 +12,7 @@ import FoodPage from './pages/food/FoodPage'
 import LatestActivityPage from './pages/latestactivity/LatestActivityPage'
 import TeacherPage from './pages/teacher/TeacherPage'
 import UserPage from './pages/user/UserPage'
+import TeacherDetailsPage from './pages/teacher/TeacherDetailsPage'
 
 
 
@@ -62,7 +63,8 @@ function App() {
             </Sidebar>} />
 
             <Route path= '/user' element ={<Sidebar>
-              <UserPage/>
+              {/* <UserPage/> */}
+              <TeacherDetailsPage/>
             </Sidebar>} />
 
             <Route path= '/chat' element ={<Sidebar>

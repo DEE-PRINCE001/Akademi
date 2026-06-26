@@ -27,7 +27,7 @@ const FoodPage = () => {
       rating: 4.7,
       totalOrders: 1456,
       interest: 26,
-      progress: 50,
+      progress: 40,
       image: "/assets/images/pancake.png"
     },
     {
@@ -37,7 +37,7 @@ const FoodPage = () => {
       rating: 4.8,
       totalOrders: 1456,
       interest: 26,
-      progress: 50,
+      progress: 30,
       image: "/assets/images/beef-ramen.png"
     },
     {
@@ -47,7 +47,7 @@ const FoodPage = () => {
       rating: 4.2,
       totalOrders: 1456,
       interest: 26,
-      progress: 50,
+      progress: 70,
       image: "/assets/images/mixed-salad.png"
     },
     {
@@ -100,7 +100,7 @@ const FoodPage = () => {
             </div>
           </div>
 
-          <div className='flex flex-col space-y-5 flex-1 min-h-0 overflow-auto'>
+          <div className='flex flex-col space-y-5 flex-1 min-h-0 overflow-auto scrollbar-thin'>
             {filteredData.map((data) => <FoodRow key={data.id} type={data.category} noOfOrder={data.totalOrders}
               interest={data.interest} name={data.name} rating={data.rating} percentage={data.progress} />)}
           </div>
@@ -108,7 +108,7 @@ const FoodPage = () => {
 
         {/* Footer */}
         <div>
-          <div className='flex justify-between items-center w-full'>
+          <div className='flex justify-between items-center mt-3 w-full'>
             <div className='text-grey-300 text-xs'>
               Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
             </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import GeneralHeader from '../../components/Layout/GeneralHeader'
 import Calendar from './Calendar'
-import ScheduleCard from './ScheduleCard'
+import ScheduleCard from '../../components/Cards/ScheduleCard'
 import Button from '../../components/labels/Button'
 
 

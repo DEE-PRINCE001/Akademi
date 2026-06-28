@@ -10,6 +10,7 @@ import Button from '../../components/labels/Button';
 import { NavContext } from '../../contexts/NavContext';
 import larrow from '../../assets/icons/arrow-left.svg'
 import rarrow from '../../assets/icons/arrow-right.svg'
+import { useNavigate } from 'react-router-dom';
 
 const students = [
   {
@@ -86,20 +87,24 @@ const students = [
 
 
 const StudentPage = () => {
+  const navigate = useNavigate()
 
   const { sideBarOpened,
     setSideBarOpened,
     profileOpened,
     setProfileOpened } = useContext(NavContext);
   return (
-    <div className='flex-1 flex flex-col space-y-3 md:space-y-7 h-full overflow-auto w-auto m-0'>
+    <div className='flex-1 flex min-w-0 flex-col space-y-5 md:space-y-7 h-full overflow-auto w-auto m-0'>
+      <div className='flex-1 min-w-0'>
 
-      <GeneralHeader title={"Students"} />
+        <GeneralHeader title={"Students"} />
+      </div>
       <div className='flex  flex-col-reverse md:flex-row gap-y-3 md:gap-y-0 items-center md:justify-between'>
+        <CircularIcon icon={<Menu size={40} />} className="hidden md:flex xl:hidden text-primary mr-5" onClick={() => setSideBarOpened(!sideBarOpened)} />
         <SearchBox size="mb" />
         <div className='flex justify-between w-full md:justify-end'>
 
-          <Menu size={40} className="md:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
+          <CircularIcon icon={<Menu size={40} />} className="md:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
           <div className='flex space-x-2'>
             <Button rightIcon={<div className='w-0 h-0 border-l-6 border-r-6 border-t-8 
             border-l-transparent border-r-transparent border-t-primary'></div>}
@@ -107,36 +112,41 @@ const StudentPage = () => {
 
             <Button colors={"bg-primary border-primary text-white hover:bg-primary-text hover:border-primary-text"}
               leftIcon={<Plus className='text-white' strokeWidth={5} size={15} />}
-              onClick={() => alert("Cannot add new student yet, do with what you have")}
+              onClick={() => navigate("/add-student")}
             >New Student</Button>
           </div>
         </div>
       </div>
 
-      <div className='max-w-full bg-white rounded-xl overflow-x-auto scrollbar-thin'>
-        <div className='w-'>
+      <div className='max-w-full min-w-0 bg-white rounded-xl overflow-x-auto scrollbar-thin'>
+        <div className=''>
 
-          <Header selected={students.selected} />
+          <div className='min-w-200'>
+
+            <Header selected={students.selected} />
+
+            {students.map((student) =>
+              <StudentRow key={student.id} selected={student.selected} name={student.name}
+                studentId={student.studentId} city={student.city} date={student.date}
+                grade={student.grade} parentName={student.parent} />
+            )}
+          </div>
+
         </div>
-        {students.map((student) =>
-          <StudentRow key={student.id} selected={student.selected} name={student.name}
-            studentId={student.studentId} city={student.city} date={student.date}
-            grade={student.grade} parentName={student.parent} />
-        )}
       </div>
 
       <div className='flex justify-between items-center w-full mb-4'>
-          <div className='text-grey-300 text-xs'>
-            Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
-          </div>
-          <div className='flex space-x-1 items-center'>
-            <img src={larrow} alt="" className='w-3 h-3 mr-2' />
-            <CircularIcon variant='emptyWithStroke' size='sm'>1</CircularIcon>
-            <CircularIcon variant='emptyWithStroke' size='sm'>2</CircularIcon>
-            <CircularIcon variant='emptyWithStroke' size='sm'>3</CircularIcon>
-            <img src={rarrow} alt="" className='w-3 h-3 ml-2' />
-          </div>
+        <div className='text-grey-300 text-xs'>
+          Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
         </div>
+        <div className='flex space-x-1 items-center'>
+          <img src={larrow} alt="" className='w-3 h-3 mr-2' />
+          <CircularIcon variant='emptyWithStroke' size='sm'>1</CircularIcon>
+          <CircularIcon variant='emptyWithStroke' size='sm'>2</CircularIcon>
+          <CircularIcon variant='emptyWithStroke' size='sm'>3</CircularIcon>
+          <img src={rarrow} alt="" className='w-3 h-3 ml-2' />
+        </div>
+      </div>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import arrow from '../../assets/icons/arrowup.svg'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { MoreHorizontal } from 'lucide-react';
+import CategoryLabel from './CategoryLabel';
 
 const FoodRow = ({ type, name, interest, rating, noOfOrder, percentage }) => {
     return (
@@ -13,7 +14,7 @@ const FoodRow = ({ type, name, interest, rating, noOfOrder, percentage }) => {
             </div>
 
             <div className='flex-1 flex flex-col'>
-                <div className='px-3 py-1 bg-primary rounded-full text-[10px] text-white w-fit'>{type || "Breakfast"}</div>
+                <CategoryLabel type={type}/>
                 <div className='grid items-center justify-center w-full grid-cols-[1.7fr_0.5fr_1fr_1fr_0.5fr_0.5fr] gap-2 md:gap-5 text-primary-text font-bold text-[14px]'>
                     <div>{name || "Beef Steak with Fried Potato"}</div>
                     <div className='flex space-x-2 items-center'> <img src={star} alt="" className='w-3.5 h-3.5' /> <span>{rating || 4.9}</span></div>

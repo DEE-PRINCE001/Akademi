@@ -8,6 +8,7 @@ import { NavContext } from '../../contexts/NavContext'
 import CircularIcon from '../../components/labels/CircularIcon'
 import rarrow from '../../assets/icons/arrow-right.svg'
 import larrow from '../../assets/icons/arrow-left.svg'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -18,6 +19,7 @@ const TeacherPage = () => {
     profileOpened,
     setProfileOpened } = useContext(NavContext);
 
+    const navigate = useNavigate();
   const teachers = [
     {
       name: "Dimitris Vega",
@@ -69,13 +71,13 @@ const TeacherPage = () => {
     }
   ]
   return (
-    <div className='flex-1 flex flex-col space-y-3 md:space-y-7 h-full overflow-hidden scrollbar-none w-auto m-0'>
+    <div className='flex-1 flex flex-col space-y-7 h-full overflow-hidden scrollbar-none w-auto m-0'>
       <GeneralHeader title={"Teachers"} />
-      <div className='flex  flex-col-reverse md:flex-row gap-y-3 md:gap-y-0 items-center md:justify-between'>
+      <div className='flex  flex-col-reverse xl:flex-row gap-y-3 xl:gap-y-0 items-center xl:justify-between'>
         <SearchBox size="mb" />
-        <div className='flex justify-between w-full md:justify-end'>
+        <div className='flex justify-between w-full xl:justify-end'>
 
-          <Menu size={40} className="md:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
+          <CircularIcon icon={<Menu size={40} />} className="xl:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
           <div className='flex space-x-2'>
             <Button rightIcon={<div className='w-0 h-0 border-l-6 border-r-6 border-t-8 
             border-l-transparent border-r-transparent border-t-primary'></div>}
@@ -83,7 +85,7 @@ const TeacherPage = () => {
 
             <Button colors={"bg-primary border-primary text-white hover:bg-primary-text hover:border-primary-text"}
               leftIcon={<Plus className='text-white' strokeWidth={5} size={15} />}
-              onClick={() => alert("Cannot add new teacher yet, do with what you have")}
+              onClick={() => navigate("/add-teacher")}
             >New Teacher</Button>
           </div>
         </div>
@@ -93,7 +95,7 @@ const TeacherPage = () => {
       <div className='grid grid-cols-2 lg:grid-cols-4 gap-7 mb-2 overflow-y-auto scrollbar-none '>
         {teachers.map((x) => <TeacherInfo name={x.name} course={x.course} />)}
       </div>
-      <div className='flex justify-between items-center w-full'>
+      <div className='flex justify-between items-center w-full py-2'>
         <div className='text-grey-300 text-xs'>
           Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
         </div>

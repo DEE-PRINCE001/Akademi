@@ -11,7 +11,7 @@ import rarrow from '../../assets/icons/arrow-right.svg'
 
 import StatCard from './StatCard'
 import { SparkLine } from './SparkLine'
-import TrendingRow from './TrendingRow'
+import TrendingRow from '../../components/labels/TrendingRow'
 
 
 const FinancePage = () => {

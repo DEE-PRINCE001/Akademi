@@ -62,7 +62,7 @@ export const SchoolCalendar = ({ highlightedDays = {} }) => {
 
 
     return (
-        <div className="w-full max-w-md bg-white p-6 rounded-lg select-none">
+        <div className="w-full bg-white p-6 rounded-lg select-none">
 
             {/* --- Header Section with Navigation --- */}
             <div className="flex items-center justify-between mb-7">

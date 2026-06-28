@@ -12,8 +12,9 @@ const SearchBox = forwardRef(({
 }, ref) => {
 
   const sizeVariants = {
-    "mb":"w-full p-3 lg:w-70",
+    "mb":"w-full p-3 lg:w-150 xl:w-100",
     "xm":"w-full py-1",
+    "at":"w-full p-3",
     "md":"w-40 py-1 md:w-60 md:py-2",
     "lg": "w-87.5 h-15 py-0.5"
   }

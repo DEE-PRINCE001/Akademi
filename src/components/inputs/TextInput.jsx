@@ -14,7 +14,7 @@ const TextInput = forwardRef(({
   
   const borderClass = error 
     ? "border-danger focus:border-danger focus:ring-danger" 
-    : "border-grey-200 focus:border-primary focus:ring-primary";
+    : "border-grey-300 focus:border-primary focus:ring-primary";
 
   return (
     <div className="w-full flex flex-col mb-4">
@@ -25,8 +25,8 @@ const TextInput = forwardRef(({
         id={inputId}
         required={required}
         className={`
-          w-full bg-white border rounded-xl px-4 py-3 text-sm text-primary-text 
-          placeholder:text-grey-300 focus:outline-none focus:ring-1 transition-all duration-200
+          w-full bg-white rounded-sm border px-2 py-2 text-sm text-primary-text 
+          placeholder:text-grey-300 placeholder:text-xs focus:outline-none focus:ring-1 transition-all duration-200
           ${borderClass} ${className}
         `}
         {...props}

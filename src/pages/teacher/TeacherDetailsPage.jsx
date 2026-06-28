@@ -7,17 +7,17 @@ import CircularIcon from '../../components/labels/CircularIcon'
 
 const TeacherDetailsPage = ({ name, course, education, location, phone, email, about, expertise }) => {
     return (
-        <div className='relative flex-1 flex flex-col min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
+        <div className='flex-1 flex flex-col min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
             <div className='md:w-[72%]'>
-                <GeneralHeader title={"Events"} searchBox />
+                <GeneralHeader title={"Teacher Details"} searchBox />
             </div>
-            
+          
             <div className='flex-1 min-h-0 min-w-0 flex h-full flex-col space-y-5 md:flex-row md:space-x-6 md:space-y-0 w-full'>
                 <div className='flex-1 bg-white rounded-xl min-w-0 flex h-full flex-col space-y-5 md:flex-row md:space-x-6 md:space-y-0 w-full pb-3'>
                     <div className='flex-1 relative flex flex-col min-h-0 min-w-0 w-full md:w-[70%] overflow-auto scrollbar-none'>
                         <div className='w-full h-23 bg-primary rounded-t-xl'></div>
                         <div className='absolute top-2 left-3 cursor-pointer'>
-                            <CircularIcon variant='details' size='sm'
+                            <CircularIcon variant='details' size='sm' onClick={() => alert("Comming Very Soon")}
                                 icon={<ArrowLeft size={20} className='text-inherit' />} />
                         </div>
                         <div className='flex-1 flex flex-col space-y-5 relative bg-white h-full min-h-0 p-7 pt-18 rounded-b-xl z-1'>

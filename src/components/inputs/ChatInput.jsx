@@ -22,7 +22,7 @@ const ChatInput = forwardRef(({
 
   return (
     <div className={`
-      flex items-center bg-white rounded-full pl-6 pr-2 py-1.5 w-full
+      flex items-center bg-white rounded-full pl-6 pr-1 py-1 w-full
       border border-grey-200 transition-all duration-200
       focus-within:ring-1 focus-within:ring-primary focus-within:border-primary
       ${disabled ? 'opacity-60 pointer-events-none' : ''}
@@ -52,11 +52,11 @@ const ChatInput = forwardRef(({
           disabled={disabled}
           className="
             text-grey-300 hover:text-primary transition-colors 
-            p-2 mr-1 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20
+            p-2 mr-1 z-10 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20
           "
           title="Attach a file"
         >
-          <Paperclip size={20} className="rotate-45" />
+          <Paperclip size={20} /> 
         </button>
       )}
 
@@ -64,7 +64,7 @@ const ChatInput = forwardRef(({
       <button
         type="button"
         onClick={onSend}
-        disabled={disabled || !value?.trim()}
+        disabled={disabled || value?.trim()}
         className="
           bg-primary hover:bg-primary/90 disabled:bg-grey-200 disabled:text-grey-300
           text-white rounded-full px-5 py-2.5 flex items-center gap-x-2 
@@ -73,7 +73,7 @@ const ChatInput = forwardRef(({
         "
       >
         <span>Send</span>
-        <Send size={16} strokeWidth={2.5} />
+        <Send size={16} strokeWidth={2.5} className='rotate-45' />
       </button>
     </div>
   );

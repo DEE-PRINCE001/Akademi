@@ -13,11 +13,16 @@ import LatestActivityPage from './pages/latestactivity/LatestActivityPage'
 import TeacherPage from './pages/teacher/TeacherPage'
 import UserPage from './pages/user/UserPage'
 import TeacherDetailsPage from './pages/teacher/TeacherDetailsPage'
+import StudentDetailsPage from './pages/student/StudentDetailsPage'
 
 
 
 
 import { NavContext } from './contexts/NavContext'
+import FoodDetailsPage from './pages/food/FoodDetailsPage'
+import AddTeacherPage from './pages/teacher/AddTeacherPage'
+import ActivityTimeline from './pages/latestactivity/ActivityTimeline'
+import AddStudentPage from './pages/student/AddStudentPage'
 
 
 // import reactLogo from './assets/react.svg'
@@ -45,9 +50,18 @@ function App() {
                          <StudentPage/>
                        </Sidebar>
                        } />
+            
+            <Route path= '/add-student' element ={
+                       <Sidebar>
+                         <AddStudentPage/>
+                       </Sidebar>
+                       } />
 
             <Route path= '/teachers' element ={<Sidebar>
-              <TeacherPage/>
+              <TeacherPage/>              
+            </Sidebar>} />
+            <Route path= '/add-teacher' element ={<Sidebar>              
+              <AddTeacherPage/>
             </Sidebar>} />
 
             <Route path= '/event' element ={<Sidebar>
@@ -62,9 +76,10 @@ function App() {
               <FoodPage/>
             </Sidebar>} />
 
-            <Route path= '/user' element ={<Sidebar>
-              {/* <UserPage/> */}
-              <TeacherDetailsPage/>
+            <Route path= '/user' element ={<Sidebar  doublescreen={true}>
+              <UserPage/>
+              {/* <TeacherDetailsPage/>
+              <StudentDetailsPage/> */}
             </Sidebar>} />
 
             <Route path= '/chat' element ={<Sidebar>
@@ -73,6 +88,7 @@ function App() {
 
             <Route path= '/latest-activity' element ={<Sidebar>
               <LatestActivityPage/>
+              {/* <ActivityTimeline/> */}
             </Sidebar>} />
             
         </Routes>  

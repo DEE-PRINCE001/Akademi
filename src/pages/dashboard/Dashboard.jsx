@@ -101,10 +101,10 @@ const Dashboard = () => {
   ]
   return (
     // <div className={`flex-1 lg:flex m-0 w-auto`} >
-    <div className={`lg:flex h-full`} >
-      <div className='relative flex-1 flex flex-col w-full px-2 md:p-8 md:pt-0 
+    <div className={`flex-1 lg:flex min-w-0 h-full`} >
+      <div className='relative flex-1 min-w-0 flex flex-col w-full px-2 md:p-8 md:pt-0 
             pb-0 h-screen space-y-5 overflow-y-auto scrollbar-none'>
-        <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full bg-background/50 backdrop-blur-xl z-1'>
+        <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full flex-1 min-w-0 bg-background/50 backdrop-blur-xl z-1'>
 
           {/* The Header */}
           <GeneralHeader title={"Dashboard"} searchBox />
@@ -140,18 +140,25 @@ const Dashboard = () => {
 
 
         {/* the school performance */}
-        <SchoolPerformance spdata={spdata} />
+        <div className='w-full min-w-0'>
+          <div className='overflow-x-auto scrollbar-thin'>
+            <div className='min-w-150'>
+              <SchoolPerformance spdata={spdata} />
+            </div>
+          </div>
+
+        </div>
 
 
         {/* Calenndar and finance */}
-        <div className='flex space-x-5 w-full text-primary-text'>
+        <div className='flex flex-col space-y-5 sm:space-y-0 sm:flex-row sm:space-x-5 w-full text-primary-text'>
           <div className='flex flex-col bg-white w-full h-90 rounded-lg overflow-x-auto overflow-y-hidden'>
             {/* <div className='flex justify-between'>
               <h1 className='text-primary-text text-lg font-bold'>School Calendar</h1>
               <p>Last week</p>
             </div>
             <div> */}
-              <SchoolCalendar highlightedDays={marchEvents} />
+            <SchoolCalendar highlightedDays={marchEvents} />
             {/* </div> */}
 
           </div>
@@ -163,7 +170,7 @@ const Dashboard = () => {
               <p className=''>Last week</p>
             </div>
             <div> */}
-              <SchoolFinanceChart/>
+            <SchoolFinanceChart />
             {/* </div> */}
 
           </div>
@@ -173,22 +180,27 @@ const Dashboard = () => {
         </div>
 
         {/* Unpaid Student Intuition */}
-        <div className='flex flex-col space-y-7 bg-white w-full rounded-lg p-5'>
-          <div className='flex justify-start'>
-            <h1 className='text-primary-text text-lg font-bold'>Unpaid Student Intuition</h1>
+        <div className='bg-white rounded-lg max-w-full min-w-0 '>
+          <div className='overflow-auto'>
+
+            <div className='flex flex-col space-y-7 overflow-auto scrollbar-thin min-w-150 w-full p-5'>
+              <div className='flex justify-start'>
+                <h1 className='text-primary-text text-lg font-bold'>Unpaid Student Intuition</h1>
+              </div>
+
+
+              <UnpaidStudentRow printer />
+              <UnpaidStudentRow printer />
+              <UnpaidStudentRow printer />
+              <UnpaidStudentRow printer />
+              <UnpaidStudentRow printer />
+
+
+
+              <div></div>
+
+            </div>
           </div>
-
-
-          <UnpaidStudentRow printer />
-          <UnpaidStudentRow printer />
-          <UnpaidStudentRow printer />
-          <UnpaidStudentRow printer />
-          <UnpaidStudentRow printer />
-
-
-
-          <div></div>
-
         </div>
 
       </div>

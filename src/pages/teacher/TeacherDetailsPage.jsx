@@ -4,8 +4,14 @@ import ScheduleCard from '../../components/Cards/ScheduleCard'
 import Button from '../../components/labels/Button'
 import { ArrowBigLeftIcon, ArrowLeft, Contact, Mail, MapPin, MoreHorizontal, Phone, PhoneCall } from 'lucide-react'
 import CircularIcon from '../../components/labels/CircularIcon'
+import { useNavigate, useParams } from 'react-router-dom'
+import { teachers } from './TeacherData'
+
 
 const TeacherDetailsPage = ({ name, course, education, location, phone, email, about, expertise }) => {
+    const { id } = useParams()
+    const teacher = teachers.find((x) => x.id === Number(id))
+    const navigate = useNavigate()
     return (
         <div className='flex-1 flex flex-col min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
             <div className='md:w-[72%]'>
@@ -17,7 +23,7 @@ const TeacherDetailsPage = ({ name, course, education, location, phone, email, a
                     <div className='flex-1 relative flex flex-col min-h-0 min-w-0 w-full md:w-[70%] overflow-auto scrollbar-none'>
                         <div className='w-full h-23 bg-primary rounded-t-xl'></div>
                         <div className='absolute top-2 left-3 cursor-pointer'>
-                            <CircularIcon variant='details' size='sm' onClick={() => alert("Comming Very Soon")}
+                            <CircularIcon variant='details' size='sm' onClick={() => navigate(-1)}
                                 icon={<ArrowLeft size={20} className='text-inherit' />} />
                         </div>
                         <div className='flex-1 flex flex-col space-y-5 relative bg-white h-full min-h-0 p-7 pt-18 rounded-b-xl z-1'>
@@ -26,8 +32,8 @@ const TeacherDetailsPage = ({ name, course, education, location, phone, email, a
                             </div>
 
                             <div className='flex flex-col space-y-3'>
-                                <h1 className='text-[20px] leading-none text-primary-text font-bold'>{name || "Maria Historia"}</h1>
-                                <p className='text-xs font-semibold text-grey-300 leading-none'>{course ? course + " Teacher" : "Histroy Teacher"}</p>
+                                <h1 className='text-[20px] leading-none text-primary-text font-bold'>{teacher.name || "Maria Historia"}</h1>
+                                <p className='text-xs font-semibold text-grey-300 leading-none'>{teacher.course ? teacher.course + " Teacher" : "Histroy Teacher"}</p>
                             </div>
                             <div className='flex space-x-7 mb-8'>
                                 <div className='flex space-x-2 items-center'>

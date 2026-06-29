@@ -17,7 +17,7 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
     <div className={`lg:flex h-full`} >
       <div className='relative flex-1 flex flex-col w-full px-2 md:p-8 md:pt-0 
               pb-0 h-screen space-y-5 overflow-y-auto scrollbar-none'>
-        <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full bg-background/50 backdrop-blur-xl z-20'>
+        <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full bg-background/50 backdrop-blur-xl z-5'>
 
           {/* The Header */}
           <GeneralHeader title={"User Dashboard"} searchBox />
@@ -37,7 +37,7 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
                 <MoreHorizontal size={20} className='text-grey-300 hover:text-primary' />
               </div>
 
-              <div className='flex space-x-12 items-center'>
+              <div className='flex flex-col space-y-5 sm:flex-row sm:space-y-0 sm:space-x-12 sm:items-center'>
                 {/* left side of the details */}
                 <div className='flex flex-col space-y-3'>
                   <h1 className='text-[20px] leading-none text-primary-text font-bold'>{name || "Nabila Azalea"}</h1>
@@ -50,6 +50,7 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
 
                 {/* right side */}
                 <div className='flex space-x-15'>
+                  {/* <div className='flex flex-col space-y-5 sm:flex-row sm:space-x-15 sm:space-y-0'></div> */}
                   <div className='flex flex-col space-y-2'>
                     <p className='text-[12px] text-grey-300'>Phone:</p>
                     <div className='flex space-x-3 items-center'>
@@ -113,7 +114,7 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
 
 
       {/* Right SideBar */}
-      <div className='relative bg-white w-70 h-full'>
+      <div className='relative hidden lg:block bg-white w-70 h-full'>
         <div className='sticky top-0 bg-transparent w-full backdrop-blur-xl h-20'></div>
         <div className='flex flex-col space-y-5 p-5'>
           <div className='relative flex flex-col text-white space-y-5 bg-primary rounded-l-2xl rounded-t-2xl

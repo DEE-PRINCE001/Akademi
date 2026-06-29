@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import { Phone, Mail, MoreHorizontal } from 'lucide-react';
 import CircularIcon from '../../components/labels/CircularIcon';
-const StudentRow = ({name, studentId, grade = "VII A", date, parentName, city }) => {
+import { Link } from 'react-router-dom';
+
+
+const StudentRow = ({ id, name, studentId, grade = "VII A", date, parentName, city }) => {
     const [selected, setSelected] = useState(false);
+    const [optionOpened, setOptionOpened] = useState(false);
+
     const colors = {
         "VII A": "bg-secondary",
         "VII B": "bg-accent",
         "VII C": "bg-primary",
     };
+
 
     return (
         <div
@@ -86,9 +92,12 @@ const StudentRow = ({name, studentId, grade = "VII A", date, parentName, city })
             </div>
 
             <button className='justify-self-end'>
-                <MoreHorizontal
-                    className="text-grey-300"
+                <MoreHorizontal onClick={() => setOptionOpened(!optionOpened)}
+                    className="text-grey-300 relative cursor-pointer"
                 />
+                <div className={`absolute text-primary right-5 cursor-pointer border border-grey-200 text-xs -top-2 right-8 z-2 rounded-md px-4 hover:bg-gray-100 py-2 shadow-md bg-gray-200 ${optionOpened ? "inline" : "hidden"}`}>
+                    <Link to={`/students/details/${id}`}>Details</Link>
+                </div>
             </button>
 
 

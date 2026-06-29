@@ -30,69 +30,89 @@ import AddStudentPage from './pages/student/AddStudentPage'
 
 function App() {
 
-    const [sideBarOpened, setSideBarOpened] = useState(false);
-    const [profileOpened, setProfileOpened] = useState(false);
+  const [sideBarOpened, setSideBarOpened] = useState(false);
+  const [profileOpened, setProfileOpened] = useState(false);
 
   return (
     <>
-    <NavContext.Provider value={{ sideBarOpened, setSideBarOpened, profileOpened, setProfileOpened }}>
+      <NavContext.Provider value={{ sideBarOpened, setSideBarOpened, profileOpened, setProfileOpened }}>
         <Routes>
-        
+
           <Route path='/' element={
             <Sidebar doublescreen={true} >
-              <Dashboard/>
+              <Dashboard />
+            </Sidebar>
+          } />
+
+          <Route path='/students'>
+
+            <Route index element={
+              <Sidebar>
+                <StudentPage />
               </Sidebar>
-              } />
+            } />
 
-        
-            <Route path= '/students' element ={
-                       <Sidebar>
-                         <StudentPage/>
-                       </Sidebar>
-                       } />
-            
-            <Route path= '/add-student' element ={
-                       <Sidebar>
-                         <AddStudentPage/>
-                       </Sidebar>
-                       } />
+            <Route path='add' element={
+              <Sidebar>
+                <AddStudentPage />
+              </Sidebar>
+            } />
+            <Route path='details/:id' element={
+              <Sidebar>
+                <StudentDetailsPage />
+              </Sidebar>
+            } />
+          </Route>
 
-            <Route path= '/teachers' element ={<Sidebar>
-              <TeacherPage/>              
+          <Route path='/teachers'>
+
+            <Route index element={<Sidebar>
+              <TeacherPage />
             </Sidebar>} />
-            <Route path= '/add-teacher' element ={<Sidebar>              
-              <AddTeacherPage/>
+            <Route path='add' element={<Sidebar>
+              <AddTeacherPage />
             </Sidebar>} />
-
-            <Route path= '/event' element ={<Sidebar>
-              <EventPage/>
-            </Sidebar>} />
-
-            <Route path= '/finance' element ={<Sidebar>
-              <FinancePage/>
+            <Route path='details/:id' element={<Sidebar>
+              <TeacherDetailsPage />
             </Sidebar>} />
 
-            <Route path= '/food' element ={<Sidebar>
-              <FoodPage/>
-            </Sidebar>} />
+          </Route>
 
-            <Route path= '/user' element ={<Sidebar  doublescreen={true}>
-              <UserPage/>
-              {/* <TeacherDetailsPage/>
+
+          <Route path='/event' element={<Sidebar>
+            <EventPage />
+          </Sidebar>} />
+
+          <Route path='/finance' element={<Sidebar>
+            <FinancePage />
+          </Sidebar>} />
+
+          <Route path='/food'>
+            <Route index element={<Sidebar>
+              <FoodPage />
+            </Sidebar>} />
+            <Route path='details/:id' element={<Sidebar>
+              <FoodDetailsPage />
+            </Sidebar>} />
+          </Route>
+
+          <Route path='/user' element={<Sidebar doublescreen={true}>
+            <UserPage />
+            {/* <TeacherDetailsPage/>
               <StudentDetailsPage/> */}
-            </Sidebar>} />
+          </Sidebar>} />
 
-            <Route path= '/chat' element ={<Sidebar>
-              <ChatPage/>
-            </Sidebar>} />
+          <Route path='/chat' element={<Sidebar>
+            <ChatPage />
+          </Sidebar>} />
 
-            <Route path= '/latest-activity' element ={<Sidebar>
-              <LatestActivityPage/>
-              {/* <ActivityTimeline/> */}
-            </Sidebar>} />
-            
-        </Routes>  
-    </NavContext.Provider>
+          <Route path='/latest-activity' element={<Sidebar>
+            <LatestActivityPage />
+            {/* <ActivityTimeline/> */}
+          </Sidebar>} />
+
+        </Routes>
+      </NavContext.Provider>
     </>
   )
 }

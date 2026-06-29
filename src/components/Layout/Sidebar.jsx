@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { sidebardata } from './SidebarData'
 import CircularIcon from '../labels/CircularIcon'
-import { Bell, Menu, Settings, X } from 'lucide-react'
+import { ArrowLeft, Bell, CrossIcon, Menu, Settings, X } from 'lucide-react'
 import event from '../../assets/icons/event.svg'
 import { NavContext } from '../../contexts/NavContext'
 
@@ -32,7 +32,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
     }, [])
 
     return (
-        <div className='flex bg-background w-full h-full'>
+        <div className='flex bg-background w-full h-full '>
             <div className={`absolute top-4.5 right-3 md:right-8 md:top-8 flex items-center space-x-4 z-40`}>
                 <div className={`${profileOpened ? "flex" : "hidden"} sm:flex items-center space-x-4`}>
 
@@ -50,11 +50,16 @@ const Sidebar = ({ children, doublescreen = false }) => {
             <div ref={sideRef} className={`h-screen ${sideBarOpened ? "flex translate-0 absolute z-10" : "-translate-x-full absolute transition"} z-10 
                 transition-all duration-400 xl:static xl:translate-x-0 xl:flex xl:w-70 
                 3xl:w-85 bg-primary font-sans mt-0`}>
-                <div className='flex flex-col p-8 w-full pr-0 space-y-2'>
+                <div className='relative flex flex-col p-8 w-full pr-0 space-y-2'>
                     <div className="flex space-x-5 items-center mb-10">
                         <div className='bg-secondary text-white font-bold text-3xl 3xl:text-4xl 
                     p-0.5 w-10 h-10 3xl:w-12 3xl:h-12 rounded-xl 3xl:rounded-2xl text-center'>A</div>
                         <h1 className='text-3xl 3xl:text-4xl text-white font-bold pr-4'>Akademi</h1>
+                    </div>
+
+                    <div className='absolute xl:hidden top-21 right-5 cursor-pointer'>
+                        <CircularIcon variant='details' size='sm' onClick={() => setSideBarOpened(false)}
+                            icon={<X size={20} className='text-inherit' />} />
                     </div>
 
                     {sidebardata.map((x) =>

@@ -12,7 +12,7 @@ export default function ActivityTimeline() {
                     user: "Karen Hope",
                     action: "has created new task at",
                     target: "History Lesson",
-                    targetColor: "text-orange-500"
+                    targetColor: "text-secondary"
                 },
                 {
                     id: 2,
@@ -27,7 +27,7 @@ export default function ActivityTimeline() {
                     user: "Tony Soap",
                     action: "commented at",
                     target: "Science Homework",
-                    targetColor: "text-red-500"
+                    targetColor: "text-danger"
                 },
                 {
                     id: 4,
@@ -35,7 +35,7 @@ export default function ActivityTimeline() {
                     user: "Samantha William",
                     action: "add 4 files on",
                     target: "Art Class",
-                    targetColor: "text-indigo-600",
+                    targetColor: "text-primary",
                     attachments: [1, 2, 3, 4] // Placeholders for images
                 },
                 {
@@ -44,7 +44,7 @@ export default function ActivityTimeline() {
                     user: "You",
                     action: "has moved",
                     target: "“Biology Homework”",
-                    targetColor: "text-emerald-500 font-semibold",
+                    targetColor: "text-success font-semibold",
                     extraText: "task to Done"
                 }
             ]
@@ -59,55 +59,67 @@ export default function ActivityTimeline() {
                     user: "Johnny Ahmad",
                     action: "mentioned you at",
                     target: "Art Class Homework",
-                    targetColor: "text-amber-500"
+                    targetColor: "text-accent"
+                },
+                {
+                    id: 7,
+                    type: "mention",
+                    user: "Nadila Adja",
+                    action: "mentioned you at",
+                    target: "Programming Homework",
+                    targetColor: "text-primary"
                 }
             ]
         }
     ];
     return (
-        <div className="max-w-4xl p-6 bg-white min-h-screen font-sans text-slate-700">
+        <div className="flex-1 p-6 rounded-2xl bg-white min-h-screen font-sans text-grey-300">
             {activityData.map((group, groupIdx) => (
                 <div key={groupIdx} className="mb-8 last:mb-0">
-                    {/* Section Date Heading */}
+
                     <h2 className="text-xl font-bold text-slate-800 mb-6">{group.dateGroup}</h2>
 
                     <div className="flex flex-col">
                         {group.items.map((item, itemIdx) => (
                             <div key={item.id} className="flex group">
 
-                                {/* LEFT COLUMN: Timeline Line & Node */}
-                                <div className="relative flex flex-col items-center w-12 flex-shrink-0">
-                                    {/* Vertical Line connecting the dots */}
-                                    <div className="absolute top-0 bottom-0 w-[2px] bg-slate-200 left-1/2 -translate-x-1/2 group-last:bottom-1/2"></div>
+                            
+                                <div className="relative flex flex-col items-center w-12 shrink-0">
+
+                                    
+                                    <div className="w-px bg-grey-300 h-px shrink-0"></div>
 
                                     {/* Timeline Dot */}
-                                    <div className="relative z-10 flex items-center justify-center w-4 h-4 rounded-full border-2 border-indigo-600 bg-white mt-1.5 shadow-sm">
-                                        {/* Inner pulse effect if you want to make it look extra premium */}
-                                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-600"></div>
+                                    <div className="relative z-2 flex items-center justify-center w-3.5 h-3.5 rounded-full border-3 border-primary bg-white shadow-sm flex-shrink-0">
+                                        {/* <div className="w-1.5 h-1.5 rounded-full bg-primary"></div> */}
                                     </div>
+
+                                    
+                                    <div className="w-px bg-grey-300 flex-1 group-last:hidden"></div>
+
                                 </div>
 
                                 {/* RIGHT COLUMN: Content */}
                                 <div className="flex-1 pb-8 group-last:pb-2 pl-2">
-                                    {/* Timestamp */}
-                                    <span className="text-xs text-slate-400 block mb-1">
+
+                                    <span className="text-xs text-grey-200 block mb-1">
                                         {group.timestamp}
                                     </span>
 
-                                    {/* Notification Text Parsing */}
-                                    <div className="text-sm leading-relaxed text-slate-600">
+
+                                    <div className="text-sm leading-relaxed text-primary-text">
                                         {item.isReminder ? (
                                             <p>
-                                                <span className="text-red-500 font-bold mr-1">[REMINDER]</span>
+                                                <span className="text-danger font-bold mr-1">[REMINDER]</span>
                                                 {item.text.split(item.highlightText)[0]}
-                                                <span className="text-red-500 font-bold">{item.highlightText}</span>
+                                                <span className="text-danger font-bold">{item.highlightText}</span>
                                                 {item.text.split(item.highlightText)[1]}
                                             </p>
                                         ) : (
                                             <p>
-                                                <span className="font-bold text-slate-800 mr-1">{item.user}</span>
+                                                <span className="font-bold text-primary-text mr-1">{item.user}</span>
                                                 {item.action}{' '}
-                                                <span className={`font-semibold ${item.targetColor || 'text-slate-800'}`}>
+                                                <span className={`font-semibold ${item.targetColor || 'text-primary-text'}`}>
                                                     {item.target}
                                                 </span>
                                                 {item.extraText && ` ${item.extraText}`}
@@ -121,7 +133,7 @@ export default function ActivityTimeline() {
                                             {item.attachments.map((_, i) => (
                                                 <div
                                                     key={i}
-                                                    className="aspect-[4/3] rounded-xl bg-indigo-100/70 border border-indigo-50/50 hover:bg-indigo-200/50 transition-colors duration-200 cursor-pointer"
+                                                    className="aspect-4/2.5 rounded-xl bg-grey-200 hover:bg-grey-200/70 transition-colors duration-200 cursor-pointer"
                                                 />
                                             ))}
                                         </div>

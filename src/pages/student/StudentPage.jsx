@@ -11,79 +11,8 @@ import { NavContext } from '../../contexts/NavContext';
 import larrow from '../../assets/icons/arrow-left.svg'
 import rarrow from '../../assets/icons/arrow-right.svg'
 import { useNavigate } from 'react-router-dom';
-
-const students = [
-  {
-    id: 1,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII C",
-    selected: false,
-  },
-  {
-    id: 2,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII A",
-    selected: true,
-  },
-  {
-    id: 3,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII B",
-    selected: true,
-  },
-  {
-    id: 4,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII C",
-    selected: true,
-  },
-  {
-    id: 5,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII A",
-    selected: true,
-  },
-  {
-    id: 6,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII A",
-    selected: true,
-  },
-  {
-    id: 7,
-    name: "Samanta William",
-    studentId: "#123456789",
-    date: "March 25, 2021",
-    parent: "Mana William",
-    city: "Jakarta",
-    grade: "VII A",
-    selected: true,
-  }
-];
+import SpecialSearchLayout from '../../components/Layout/SpecialSearchLayout';
+import { students } from './StudentData'
 
 
 const StudentPage = () => {
@@ -94,57 +23,47 @@ const StudentPage = () => {
     profileOpened,
     setProfileOpened } = useContext(NavContext);
   return (
-    <div className='flex-1 flex min-w-0 flex-col space-y-5 md:space-y-7 h-full overflow-auto w-auto m-0'>
-      <div className='flex-1 min-w-0'>
+    <div className='flex-1 flex min-w-0 flex-col space-y-5 md:space-y-7 h-full w-auto m-0'>
+      <div className='min-h-0 h-fit min-w-0'>
 
         <GeneralHeader title={"Students"} />
       </div>
-      <div className='flex  flex-col-reverse md:flex-row gap-y-3 md:gap-y-0 items-center md:justify-between'>
-        <CircularIcon icon={<Menu size={40} />} className="hidden md:flex xl:hidden text-primary mr-5" onClick={() => setSideBarOpened(!sideBarOpened)} />
-        <SearchBox size="mb" />
-        <div className='flex justify-between w-full md:justify-end'>
+      <div>
 
-          <CircularIcon icon={<Menu size={40} />} className="md:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
-          <div className='flex space-x-2'>
-            <Button rightIcon={<div className='w-0 h-0 border-l-6 border-r-6 border-t-8 
-            border-l-transparent border-r-transparent border-t-primary'></div>}
-              onClick={() => alert("Sort not implemented yet, Calm down")} />
-
-            <Button colors={"bg-primary border-primary text-white hover:bg-primary-text hover:border-primary-text"}
-              leftIcon={<Plus className='text-white' strokeWidth={5} size={15} />}
-              onClick={() => navigate("/add-student")}
-            >New Student</Button>
-          </div>
-        </div>
+        <SpecialSearchLayout />
       </div>
 
-      <div className='max-w-full min-w-0 bg-white rounded-xl overflow-x-auto scrollbar-thin'>
-        <div className=''>
+      <div className='flex-1 flex flex-col min-h-0 max-w-full min-w-0 bg-white rounded-xl'>
 
-          <div className='min-w-200'>
+        <div className='max-w-full min-h-0 min-w-0 bg-white rounded-xl overflow-x-auto scrollbar-thin'>
 
-            <Header selected={students.selected} />
+          <div className='min-h-0'>
 
-            {students.map((student) =>
-              <StudentRow key={student.id} selected={student.selected} name={student.name}
-                studentId={student.studentId} city={student.city} date={student.date}
-                grade={student.grade} parentName={student.parent} />
-            )}
+            <div className='min-w-200'>
+
+              <Header selected={students.selected} />
+
+              {students.map((student) =>
+                <StudentRow key={student.id} id={student.id} selected={student.selected} name={student.name}
+                  studentId={student.studentId} city={student.city} date={student.date}
+                  grade={student.grade} parentName={student.parent} />
+              )}
+            </div>
+
           </div>
-
         </div>
-      </div>
 
-      <div className='flex justify-between items-center w-full mb-4'>
-        <div className='text-grey-300 text-xs'>
-          Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
-        </div>
-        <div className='flex space-x-1 items-center'>
-          <img src={larrow} alt="" className='w-3 h-3 mr-2' />
-          <CircularIcon variant='emptyWithStroke' size='sm'>1</CircularIcon>
-          <CircularIcon variant='emptyWithStroke' size='sm'>2</CircularIcon>
-          <CircularIcon variant='emptyWithStroke' size='sm'>3</CircularIcon>
-          <img src={rarrow} alt="" className='w-3 h-3 ml-2' />
+        <div className='flex justify-between items-center w-full my-4 px-5'>
+          <div className='text-grey-300 text-xs'>
+            Showing <span className='text-primary font-semibold'>1-5</span> from <span className='text-primary font-semibold'>100</span> data
+          </div>
+          <div className='flex space-x-1 items-center'>
+            <img src={larrow} alt="" className='w-3 h-3 mr-2' />
+            <CircularIcon variant='emptyWithStroke' size='sm'>1</CircularIcon>
+            <CircularIcon variant='emptyWithStroke' size='sm'>2</CircularIcon>
+            <CircularIcon variant='emptyWithStroke' size='sm'>3</CircularIcon>
+            <img src={rarrow} alt="" className='w-3 h-3 ml-2' />
+          </div>
         </div>
       </div>
     </div>

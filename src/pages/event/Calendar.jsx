@@ -38,7 +38,7 @@ export default function CustomCalendar() {
     const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
     return (
-        <div className="flex-1 min-h-0 flex flex-col min-w-0 w-full overflow-x-auto max-w-6xl p-3 md:p-6 mx-auto bg-white rounded-lg">
+        <div className="flex-1 min-h-0 flex flex-col min-w-150 w-full overflow-x-auto max-w-6xl p-3 md:p-6 mx-auto bg-white rounded-lg">
             {/* Header Controls */}
             <div className="flex items-center justify-between mb-7 min-w-0 overflow-x-auto">
                 <div className='text-primary-text font-bold text-xl md:text-2xl'>Calendar</div>
@@ -85,7 +85,7 @@ export default function CustomCalendar() {
                     const isCurrentMonth = isSameMonth(day, currentMonth);
                     const dayEvents = MOCK_EVENTS[dateKey];
 
-                    // Set up baseline class styles for every cell block
+                    
                     let cardClassName = "min-h-20 px-3 pt-2 pb-4 rounded-xl border transition-all flex flex-col justify-between ";
 
                     if (!isCurrentMonth) {

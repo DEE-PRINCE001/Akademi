@@ -8,11 +8,19 @@ import userIcon from '../../assets/icons/UserIcon.svg'
 import TrendingRow from '../../components/labels/TrendingRow'
 import rarrow from '../../assets/icons/arrow-right.svg'
 import larrow from '../../assets/icons/arrow-left.svg'
+import { students } from './StudentData'
+import { useNavigate, useParams } from 'react-router-dom'
+
 
 const StudentDetailsPage = ({ name, course, education, location, phone, email, about, expertise }) => {
+    const navigate = useNavigate()
+    const { id } = useParams()
+    const student = students.find((x) => x.id == Number(id))
+
     return (
         <div className='flex-1 flex flex-col min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
             <div className='md:w-[72%]'>
+
                 <GeneralHeader title={"Student Details"} searchBox />
             </div>
 
@@ -25,46 +33,52 @@ const StudentDetailsPage = ({ name, course, education, location, phone, email, a
                                 icon={<ArrowLeft size={20} className='text-inherit' />} />
                         </div> */}
                         <div className='absolute top-2 left-3 cursor-pointer'>
-                            <CircularIcon variant='details' size='sm' onClick={() => alert("Comming Very Soon")}
+                            <CircularIcon variant='details' size='sm' onClick={() => navigate(-1)}
                                 icon={<ArrowLeft size={20} className='text-inherit' />} />
                         </div>
-                        <div className='flex flex-col space-y-5 relative bg-white p-7 pb-0 pt-18 rounded-b-xl z-1'>
+                        <div className='flex flex-col space-y-4 relative bg-white p-7 pb-0 pt-18 rounded-b-xl z-1'>
                             <div className='absolute top-4 right-5'>
                                 <MoreHorizontal size={20} className='text-grey-300 hover:text-primary' />
                             </div>
 
                             <div className='flex flex-col space-y-3'>
-                                <h1 className='text-[20px] leading-none text-primary-text font-bold'>{name || "Karen Hope"}</h1>
+                                <h1 className='text-[20px] leading-none text-primary-text font-bold'>{student.name || "Karen Hope"}</h1>
                                 <p className='text-xs font-semibold text-grey-300 leading-none'>Student</p>
                             </div>
-                            <div className='flex space-x-7 mb-5'>
-                                <div className='flex flex-col space-y-2'>
-                                    <p className='text-[12px] text-grey-300'>Parents:</p>
 
-                                    <div className='flex space-x-1 items-center'>
-                                        <CircularIcon variant='secondary' size='sm' icon={<img src={userIcon} className='h-4 w-4' />} />
-                                        <div className='font-semibold text-[12px] text-primary-text'>{location || "Justin Hope"}</div>
+                            <div className='flex flex-col space-y-2 md:flex-row md:space-x-5 md:space-y-0'>
+
+                                <div className='flex space-x-5 mb-5'>
+                                    <div className='flex flex-col space-y-1'>
+                                        <p className='text-[12px] text-grey-300'>Parents:</p>
+
+                                        <div className='flex space-x-1 items-center'>
+                                            <CircularIcon variant='secondary' size='sm' icon={<img src={userIcon} className='h-4 w-4' />} />
+                                            <div className='font-semibold text-[12px] text-primary-text'>{student.parent || "Justin Hope"}</div>
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col space-y-1'>
+                                        <p className='text-[12px] text-grey-300'>Address:</p>
+                                        <div className='flex space-x-2 items-center'>
+                                            <CircularIcon variant='secondary' size='sm' icon={<MapPin size={15} className='text-white' />} />
+                                            <div className='font-semibold text-[12px] text-primary-text'>{student.city || "Jarkata, Indonesia"}</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='flex flex-col space-y-1'>
-                                    <p className='text-[12px] text-grey-300'>Address:</p>
-                                    <div className='flex space-x-2 items-center'>
-                                        <CircularIcon variant='secondary' size='sm' icon={<MapPin size={15} className='text-white' />} />
-                                        <div className='font-semibold text-[12px] text-primary-text'>{location || "Jarkata, Indonesia"}</div>
+                                <div className='flex space-x-5 mb-5'>
+                                    <div className='flex flex-col space-y-1'>
+                                        <p className='text-[12px] text-grey-300'>Phone:</p>
+                                        <div className='flex space-x-2 items-center'>
+                                            <CircularIcon variant='secondary' size='sm' icon={<Phone size={15} className='text-white' />} />
+                                            <div className='font-semibold text-[12px] text-primary-text'>{phone || "+12 345 6789 0"}</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='flex flex-col space-y-1'>
-                                    <p className='text-[12px] text-grey-300'>Phone:</p>
-                                    <div className='flex space-x-2 items-center'>
-                                        <CircularIcon variant='secondary' size='sm' icon={<Phone size={15} className='text-white' />} />
-                                        <div className='font-semibold text-[12px] text-primary-text'>{phone || "+12 345 6789 0"}</div>
-                                    </div>
-                                </div>
-                                <div className='flex flex-col space-y-1'>
-                                    <p className='text-[12px] text-grey-300'>Email:</p>
-                                    <div className='flex space-x-2 items-center'>
-                                        <CircularIcon variant='secondary' size='sm' icon={<Mail size={15} className='text-white' />} />
-                                        <div className='font-semibold text-[12px] text-primary-text'>{email || "maria@gmail.com"}</div>
+                                    <div className='flex flex-col space-y-1'>
+                                        <p className='text-[12px] text-grey-300'>Email:</p>
+                                        <div className='flex space-x-2 items-center'>
+                                            <CircularIcon variant='secondary' size='sm' icon={<Mail size={15} className='text-white' />} />
+                                            <div className='font-semibold text-[12px] text-primary-text'>{email || "maria@gmail.com"}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +96,7 @@ const StudentDetailsPage = ({ name, course, education, location, phone, email, a
                             <h1 className='text-primary-text text-lg font-bold'>School Expense</h1>
                         </div>
                         <div className='flex flex-col space-y-5'>
-                            <TrendingRow cols='4'/>
+                            <TrendingRow cols='4' />
                             <TrendingRow cols='4' status='pending' />
                             <TrendingRow cols='4' status='complete' />
                             <TrendingRow cols='4' status='canceled' />

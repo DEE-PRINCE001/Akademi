@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import GeneralHeader from '../../components/Layout/GeneralHeader'
 import CircularIcon from '../../components/labels/CircularIcon'
 import rarrow from '../../assets/icons/arrow-right.svg'
 import larrow from '../../assets/icons/arrow-left.svg'
 import { NavLink } from 'react-router-dom'
 import FoodRow from './FoodRow'
+import { Menu } from 'lucide-react'
+import { NavContext } from '../../contexts/NavContext'
+
+
 
 const FoodPage = () => {
+  const { sideBarOpened,
+          setSideBarOpened
+         } = useContext(NavContext);
   const [activeMenu, setActiveMenu] = useState("all");
 
   const foodItemsData = [
@@ -62,31 +69,32 @@ const FoodPage = () => {
     }
   ];
 
- const filteredData = React.useMemo(() => {
-  switch (activeMenu) {
-    case "snack":
-      return foodItemsData.filter((x) => x.category.toLowerCase() === "snack");
-    case "bf":
-      return foodItemsData.filter((x) => x.category.toLowerCase() === "breakfast");
-    case "lunch":
-      return foodItemsData.filter((x) => x.category.toLowerCase() === "lunch");
-    default:
-      return foodItemsData;
-  }
-}, [activeMenu]);
-  
+  const filteredData = React.useMemo(() => {
+    switch (activeMenu) {
+      case "snack":
+        return foodItemsData.filter((x) => x.category.toLowerCase() === "snack");
+      case "bf":
+        return foodItemsData.filter((x) => x.category.toLowerCase() === "breakfast");
+      case "lunch":
+        return foodItemsData.filter((x) => x.category.toLowerCase() === "lunch");
+      default:
+        return foodItemsData;
+    }
+  }, [activeMenu]);
+
   return (
     <div className='flex-1 flex flex-col space-y-3 md:space-y-7 min-h-0 h-full m-0'>
-      <div>
+      <div className='mb-2'>
         <GeneralHeader title={"Food"} />
       </div>
+      <CircularIcon icon={<Menu size={40} />} className="xl:hidden mb-2 text-primary mr-5 cursor-pointer" onClick={() => setSideBarOpened(!sideBarOpened)} />
 
-      <div className='bg-white p-5 flex min-h-0 flex-col justify-between flex-1 rounded-xl'>
-        <div className='flex flex-col flex-1 min-h-0 space-y-5'>
-          <div className='flex justify-between'>
+      <div className='bg-white p-5 flex min-h-0 min-w-0 flex-col justify-between flex-1 rounded-xl'>
+        <div className='flex flex-col flex-1 min-h-0 min-w-0 space-y-5'>
+          <div className='flex flex-col sm:flex-row sm:justify-between'>
             <div className='font-bold text-primary-text text-lg'>Food Menu</div>
 
-            <div className='relative flex space-x-2  px-3'>
+            <div className='relative flex space-x-1 sm:space-x-2  px-3'>
               <div className='absolute w-full h-0.5 bg-grey-200/50 bottom-0 left-0'></div>
               <div onClick={() => setActiveMenu("all")}
                 className={`text-xs p-3 cursor-pointer z-10 ${activeMenu == "all" ? "text-primary border-b-3 border-primary" : "text-grey-300"}`} >All Menus</div>
@@ -100,10 +108,13 @@ const FoodPage = () => {
             </div>
           </div>
 
-          <div className='flex flex-col space-y-5 flex-1 min-h-0 overflow-auto scrollbar-thin'>
-            {filteredData.map((data) => <FoodRow key={data.id} type={data.category} noOfOrder={data.totalOrders}
-              interest={data.interest} name={data.name} rating={data.rating} percentage={data.progress} />)}
+          <div className='flex-1 min-h-0 min-w-0 overflow-auto scrollbar-thin'>
+            <div className='flex flex-col space-y-5 flex-1 min-h-0 min-w-190'>
+              {filteredData.map((data) => <FoodRow key={data.id} type={data.category} noOfOrder={data.totalOrders}
+                interest={data.interest} name={data.name} rating={data.rating} percentage={data.progress} />)}
+            </div>
           </div>
+
         </div>
 
         {/* Footer */}

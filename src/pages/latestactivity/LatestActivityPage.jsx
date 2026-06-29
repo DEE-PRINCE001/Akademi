@@ -8,8 +8,7 @@ const LatestActivityPage = () => {
       <div className='md:w-[67%] xl:w-[72%]'>
         <GeneralHeader title={"Latest Activity"} searchBox />
       </div>
-      <div className='flex-1'>
-
+      <div className='flex-1 min-h-0 overflow-auto rounded-2xl scrollbar-none'>        
         <ActivityTimeline />
       </div>
     </div>

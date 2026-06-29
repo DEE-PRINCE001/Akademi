@@ -9,6 +9,8 @@ import CircularIcon from '../../components/labels/CircularIcon'
 import rarrow from '../../assets/icons/arrow-right.svg'
 import larrow from '../../assets/icons/arrow-left.svg'
 import { useNavigate } from 'react-router-dom'
+import SpecialSearchLayout from '../../components/Layout/SpecialSearchLayout'
+import { teachers } from './TeacherData'
 
 
 
@@ -20,64 +22,16 @@ const TeacherPage = () => {
     setProfileOpened } = useContext(NavContext);
 
     const navigate = useNavigate();
-  const teachers = [
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dev Doyin",
-      course: "Mathematics"
-    },
-    {
-      name: "Dev John",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Veg",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    },
-    {
-      name: "Dimitris Vega",
-      course: "Mathematics"
-    }
-  ]
+  
   return (
     <div className='flex-1 flex flex-col space-y-7 h-full overflow-hidden scrollbar-none w-auto m-0'>
       <GeneralHeader title={"Teachers"} />
-      <div className='flex  flex-col-reverse xl:flex-row gap-y-3 xl:gap-y-0 items-center xl:justify-between'>
+      <SpecialSearchLayout righButtonText={"New Teacher"}/>
+      {/* <div className='flex  flex-col-reverse xl:flex-row gap-y-3 xl:gap-y-0 items-center xl:justify-between'>
+        <CircularIcon icon={<Menu size={40} />} className="hidden md:flex xl:hidden text-primary mr-5" onClick={() => setSideBarOpened(!sideBarOpened)} />
         <SearchBox size="mb" />
         <div className='flex justify-between w-full xl:justify-end'>
-
-          <CircularIcon icon={<Menu size={40} />} className="xl:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
+          <CircularIcon icon={<Menu size={40} />} className="md:hidden text-primary" onClick={() => setSideBarOpened(!sideBarOpened)} />
           <div className='flex space-x-2'>
             <Button rightIcon={<div className='w-0 h-0 border-l-6 border-r-6 border-t-8 
             border-l-transparent border-r-transparent border-t-primary'></div>}
@@ -90,10 +44,10 @@ const TeacherPage = () => {
           </div>
         </div>
 
-      </div>
+      </div> */}
 
       <div className='grid grid-cols-2 lg:grid-cols-4 gap-7 mb-2 overflow-y-auto scrollbar-none '>
-        {teachers.map((x) => <TeacherInfo name={x.name} course={x.course} />)}
+        {teachers.map((x) => <TeacherInfo key={x.id} id={x.id} name={x.name} course={x.course} />)}
       </div>
       <div className='flex justify-between items-center w-full py-2'>
         <div className='text-grey-300 text-xs'>

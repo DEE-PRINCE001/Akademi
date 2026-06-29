@@ -9,15 +9,15 @@ import { useNavigate } from 'react-router-dom'
 const AddStudentPage = () => {
     const navigate = useNavigate()
     return (
-        <div className='flex-1 flex flex-col space-y-3 md:space-y-7 h-full overflow-hidden scrollbar-none w-auto m-0'>
+        <div className='flex-1 flex flex-col space-y-7 h-full overflow-hidden scrollbar-none w-auto m-0'>
             <GeneralHeader title={"Add New Student"} />
             <div className='flex-1 min-h-0 overflow-auto scrollbar-none flex flex-col space-y-8'>
                 <div className='rounded-xl flex-1 min-h-0 flex flex-col space-y-8'>
                     <div>
                         <div className='rounded-t-2xl bg-primary px-8 py-2.5 text-white font-bold text-[18px]'>Student Details</div>
                         <div className='flex-1 rounded-b-2xl bg-white p-5'>
-                            <div className='flex space-x-5'>
-                                <div className='w-[15%]'>
+                            <div className='flex flex-col space-y-1 lg:flex-row lg:space-x-5 lg:space-y-0'>
+                                <div className='lg:w-[15%]'>
                                     <ImageUploader />
                                 </div>
 
@@ -116,7 +116,7 @@ const AddStudentPage = () => {
                     </div>
 
                     <div>
-                        <div className='flex-1 flex justify-end space-x-3 mb-2'>
+                        <div className='flex-1 flex justify-end space-x-3 mb-5'>
                             <Button size={"px-3 py-2 text-xs"}>Save as Draft</Button>
                             <Button size={"px-3 py-2 text-xs"} onClick={() => navigate("/students")}
                                 colors={"bg-primary text-white border border-primary"}>Submit</Button>

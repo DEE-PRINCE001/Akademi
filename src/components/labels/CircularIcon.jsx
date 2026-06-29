@@ -1,5 +1,5 @@
 import React from "react";
-import getIcon from "../../util/GetIcon";
+import getIcon from "../../util/getIcon";
 
 const CircularIcon = ({
   variant = 'primary', // 'primary', 'secondary', 'accent', 'danger'

@@ -12,8 +12,9 @@ const EventPage = () => {
         <GeneralHeader title={"Events"} searchBox />
       </div>
 
-      <div className='flex-1 bg-background min-h-0 min-w-0 overflow-auto scrollbar-none
-      flex h-full flex-col space-y-5 lg:flex-row lg:space-x-6 lg:space-y-0 w-full'>
+      <div className='flex-1 bg-background min-h-0overflow-auto scrollbar-none
+      flex h-full flex-col space-y-5 lg:flex-row lg:space-x-6 lg:space-y-0 '>
+
         <div className='flex-1 min-w-0 lg:w-[70%] '>
           <div className='flex-1 flex lg:min-h-full w-full overflow-x-auto rounded-md'>
             <Calendar />
@@ -36,13 +37,13 @@ const EventPage = () => {
             <ScheduleCard />
 
             <Button colors={"bg-button-grey text-primary border-none hover:text-white hover:bg-primary"}
-              size={"lg:w-full p-3 mt-2 font-semibold text-sm mb-4"} className={"hidden lg:flex cursor-pointer"}>View More</Button>
+              size={"w-full p-3 mt-2 font-semibold text-sm mb-4"} className={"flex cursor-pointer"}>View More</Button>
           </div>
-          <div className='flex w-full lg:hidden justify-center flex-1'>
+          {/* <div className=' hidden w-full lg:hidden justify-center flex-1'>
 
             <Button colors={"bg-grey-300/30 text-primary border-none hover:text-white hover:bg-primary"}
-              size={"w-100 lg:w-full p-3 font-semibold text-sm mb-5"} className={"cursor-pointer"}>View More</Button>
-          </div>
+              size={"w-[100%] lg:w-full p-3 font-semibold text-sm mb-5"} className={"cursor-pointer"}>View More</Button>
+          </div> */}
         </div>
 
       </div>

@@ -47,7 +47,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
                 <CircularIcon variant={"empty"} onClick={() => setProfileOpened(!profileOpened)} className='cursor-pointer z-10' >A</CircularIcon>
 
             </div>
-            <div ref={sideRef} className={`h-screen ${sideBarOpened ? "flex translate-0 absolute z-10" : "-translate-x-full absolute transition"} z-10 
+            <div ref={sideRef} className={`h-screen ${sideBarOpened ? "flex translate-0 absolute z-50" : "-translate-x-full absolute transition"} z-10 
                 transition-all duration-400 xl:static xl:translate-x-0 xl:flex xl:w-70 
                 3xl:w-85 bg-primary font-sans mt-0`}>
                 <div className='relative flex flex-col p-8 w-full pr-0 space-y-2'>

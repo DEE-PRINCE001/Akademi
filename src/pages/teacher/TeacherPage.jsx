@@ -46,7 +46,7 @@ const TeacherPage = () => {
 
       </div> */}
 
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-7 mb-2 overflow-y-auto scrollbar-none '>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 mb-2 overflow-y-auto scrollbar-none '>
         {teachers.map((x) => <TeacherInfo key={x.id} id={x.id} name={x.name} course={x.course} />)}
       </div>
       <div className='flex justify-between items-center w-full py-2'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import GeneralHeader from '../../components/Layout/GeneralHeader'
 import CircularIcon from '../../components/labels/CircularIcon'
 import LabelLegend from '../../components/labels/LabelLegend'
@@ -7,9 +7,71 @@ import ChatInput from '../../components/inputs/ChatInput'
 import SearchBox from '../../components/inputs/SearchBox'
 import MessageRow from '../dashboard/MessageRow'
 import Button from '../../components/labels/Button'
+import Message from './Message'
+
 
 
 const ChatPage = ({ name, status }) => {
+  const [value, setValue] = useState("")
+  const chatRef = useRef(null);
+
+  const [messages, setMessages] = useState([
+    {id: 1,
+      text: "Doing this now",
+      type: 1
+    },
+    { id:2,
+      text: "Making it dynamic",
+      type: 2,
+      
+    }
+  ])
+
+
+
+  const onChange = (e) => {
+    e.preventDefault()
+    setValue(e.target.value)
+  }
+
+  const handleSubmit = () => {
+    setMessages([...messages, 
+      {id: (messages.at(-1).id) + 1, text: value, type:1}])
+      console.log(value)
+      setValue("")
+  }
+  const handleSend = () => {
+    setMessages([...messages, 
+      {id: (messages.at(-1).id) + 1, text: value, type:2}])
+      setValue("")
+  }
+
+  let lastOutgoingId = null;
+  let lastIncomingId = null;
+
+  for (let i = messages.length -1; i >= 0; i--){
+    let message = messages[i]
+
+    if (lastOutgoingId == null && message.type == 1){
+      lastOutgoingId = message.id;
+    }
+
+    if (lastIncomingId == null && message.type == 2)
+    {
+      lastIncomingId = message.id
+    }
+
+    if (lastIncomingId != null && lastOutgoingId != null){
+      break;
+    }
+
+  }
+
+  useEffect(() => {
+    if(chatRef.current){
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [messages])
   return (
     <div className='flex-1 flex flex-col space-y-3 md:space-y-7 min-h-0 h-full m-0'>
       <div className='md:w-[67%] xl:w-[72%]'>
@@ -65,9 +127,17 @@ const ChatPage = ({ name, status }) => {
 
             </div>
 
-            <div className='flex-1 border-b border-grey-300'></div>
+            {/* CHats */}
+
+            <div ref={chatRef} className='flex-1 p-5 overflow-y-auto scrollbar-thin border-b border-grey-300 flex-col space-y-2'>
+              {messages.map((x) => <Message type={x.type} message={x.text} isLastMessage={x.id == lastIncomingId || x.id == lastOutgoingId} />)}             
+             
+
+            </div>
+
+            {/* Keyboard  */}
             <div className='w-full h-20 border-grey-300 p-4'>
-              <ChatInput onAttachmentClick />
+              <ChatInput value={value} onAttachmentClick={handleSend} onSend={handleSubmit} onChange={onChange}/>
             </div>
           </div>
         </div>

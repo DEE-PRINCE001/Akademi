@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { Paperclip, Send } from 'lucide-react';
 
 
@@ -8,10 +8,15 @@ const ChatInput = forwardRef(({
   placeholder = "Write your message...",
   disabled = false,
   className = '',
-  value,
+  value="",
   onChange,
   ...props
 }, ref) => {
+  const [text, setText] = useState("")
+  const testChange = (e) => {
+    
+    setText(e.target.value);
+  }
   
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !disabled && onSend) {
@@ -19,6 +24,7 @@ const ChatInput = forwardRef(({
       onSend();
     }
   };
+
 
   return (
     <div className={`
@@ -64,7 +70,8 @@ const ChatInput = forwardRef(({
       <button
         type="button"
         onClick={onSend}
-        disabled={disabled || value?.trim()}
+        disabled={disabled || !value?.trim()}
+        
         className="
           bg-primary hover:bg-primary/90 disabled:bg-grey-200 disabled:text-grey-300
           text-white rounded-full px-5 py-2.5 flex items-center gap-x-2 

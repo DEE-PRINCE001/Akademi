@@ -17,16 +17,17 @@ const TeacherDetailsPage = ({ name, course, education, location, phone, email, a
             <div className='md:w-[72%]'>
                 <GeneralHeader title={"Teacher Details"} searchBox />
             </div>
-          
-            <div className='flex-1 min-h-0 min-w-0 flex h-full flex-col space-y-5 md:flex-row md:space-x-6 md:space-y-0 w-full'>
-                <div className='flex-1 bg-white rounded-xl min-w-0 flex h-full flex-col space-y-5 md:flex-row md:space-x-6 md:space-y-0 w-full pb-3'>
-                    <div className='flex-1 relative flex flex-col min-h-0 min-w-0 w-full md:w-[70%] overflow-auto scrollbar-none'>
+
+            <div className='flex-1 bg-background min-h-0 min-w-0 overflow-auto scrollbar-none
+      flex h-full flex-col space-y-5 lg:flex-row lg:space-x-6 lg:space-y-0 w-full'>
+                <div className='flex-1 min-w-0 w-full lg:overflow-auto lg:w-[70%] '>
+                    <div className='flex-1 relative flex flex-col lg:min-h-0 min-w-0 w-full lg:overflow-auto scrollbar-none'>
                         <div className='w-full h-23 bg-primary rounded-t-xl'></div>
                         <div className='absolute top-2 left-3 cursor-pointer'>
                             <CircularIcon variant='details' size='sm' onClick={() => navigate(-1)}
                                 icon={<ArrowLeft size={20} className='text-inherit' />} />
                         </div>
-                        <div className='flex-1 flex flex-col space-y-5 relative bg-white h-full min-h-0 p-7 pt-18 rounded-b-xl z-1'>
+                        <div className='flex-1 flex flex-col space-y-5 relative bg-white h-full min-h-0 p-3 pt-18 sm:p-7 sm:pt-18 rounded-b-xl z-1'>
                             <div className='absolute top-4 right-5'>
                                 <MoreHorizontal size={20} className='text-grey-300 hover:text-primary' />
                             </div>
@@ -35,18 +36,22 @@ const TeacherDetailsPage = ({ name, course, education, location, phone, email, a
                                 <h1 className='text-[20px] leading-none text-primary-text font-bold'>{teacher.name || "Maria Historia"}</h1>
                                 <p className='text-xs font-semibold text-grey-300 leading-none'>{teacher.course ? teacher.course + " Teacher" : "Histroy Teacher"}</p>
                             </div>
-                            <div className='flex space-x-7 mb-8'>
-                                <div className='flex space-x-2 items-center'>
-                                    <CircularIcon variant='secondary' size='sm' icon={<MapPin size={15} className='text-white' />} />
-                                    <div className='font-semibold text-[14px] text-primary-text'>{location || "Jarkata, Indonesia"}</div>
+                            <div className='flex flex-col space-y-3 sm:flex-row sm:space-x-7 sm:space-y-0 sm:items-center'>
+                                <div className='flex space-x-2'>
+                                    <div className='flex space-x-2 items-center'>
+                                        <CircularIcon variant='secondary' size='sm' icon={<MapPin size={15} className='text-white' />} />
+                                        <div className='font-semibold text-[14px] text-primary-text'>{location || "Jarkata, Indonesia"}</div>
+                                    </div>
+                                    <div className='flex space-x-2 items-center'>
+                                        <CircularIcon variant='secondary' size='sm' icon={<Phone size={15} className='text-white' />} />
+                                        <div className='font-semibold text-[14px] text-primary-text'>{phone || "+12 345 6789 0"}</div>
+                                    </div>
                                 </div>
-                                <div className='flex space-x-2 items-center'>
-                                    <CircularIcon variant='secondary' size='sm' icon={<Phone size={15} className='text-white' />} />
-                                    <div className='font-semibold text-[14px] text-primary-text'>{phone || "+12 345 6789 0"}</div>
-                                </div>
-                                <div className='flex space-x-2 items-center'>
-                                    <CircularIcon variant='secondary' size='sm' icon={<Mail size={15} className='text-white' />} />
-                                    <div className='font-semibold text-[14px] text-primary-text'>{email || "maria@gmail.com"}</div>
+                                <div className='flex space-x-7'>
+                                    <div className='flex space-x-2 items-center'>
+                                        <CircularIcon variant='secondary' size='sm' icon={<Mail size={15} className='text-white' />} />
+                                        <div className='font-semibold text-[14px] text-primary-text'>{email || "maria@gmail.com"}</div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -83,20 +88,20 @@ const TeacherDetailsPage = ({ name, course, education, location, phone, email, a
                     </div>
                 </div>
 
-                <div className='w-[30%] rounded-lg flex flex-col space-y-4 min-h-0'>
-                    <div className='rounded-xl p-5 h-20 bg-white w-full'>
+                <div className='w-full lg:w-[30%] xl:h-full rounded-lg flex flex-col'>
+                    <div className='rounded-xl p-5 h-20 bg-white w-full sm:w-[50%] lg:w-full mb-4'>
                         <div className='text-primary-text text-lg font-bold pb-2 leading-none'>Schedule Details</div>
                         <div className='text-[11px] text-grey-200'>Thursday, 10th April, 2021</div>
 
                     </div>
-                    <div className='flex flex-col space-y-4 overflow-auto scrollbar-thin'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1 overflow-auto scrollbar-thin'>
 
                         <ScheduleCard course={"Art"} topic={"Basic Art"} />
                         <ScheduleCard topic={"HTML and CSS"} course={"Proramming"} />
                         <ScheduleCard />
                         <ScheduleCard />
-                        <Button colors={"bg-grey-300/30 text-primary border-none hover:text-white hover:bg-primary"}
-                            size={"w-full p-3 mt-2 font-semibold text-sm"} className={"cursor-pointer"}>View More</Button>
+                        <Button colors={"bg-button-grey text-primary border-none hover:text-white hover:bg-primary"}
+                            size={"w-full p-3 mt-0 mb-5 font-semibold text-sm"} className={"cursor-pointer"}>View More</Button>
 
                     </div>
                 </div>

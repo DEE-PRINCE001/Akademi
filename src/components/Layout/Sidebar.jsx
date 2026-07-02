@@ -57,13 +57,13 @@ const Sidebar = ({ children, doublescreen = false }) => {
                         <h1 className='text-3xl 3xl:text-4xl text-white font-bold pr-4'>Akademi</h1>
                     </div>
 
-                    <div className='absolute xl:hidden top-21 right-5 cursor-pointer'>
+                    <div className='absolute xl:hidden top-19 right-5 cursor-pointer'>
                         <CircularIcon variant='details' size='sm' onClick={() => setSideBarOpened(false)}
                             icon={<X size={20} className='text-inherit' />} />
                     </div>
 
                     {sidebardata.map((x) =>
-                        <NavLink key={x.text} to={x.to} className={({ isActive }) => `px-5 py-2.5 w-full rounded-l-3xl ${isActive ? "bg-white text-primary hover:text-blue-950" : "bg-primary text-background hover:bg-blue-950"}`}>
+                        <NavLink key={x.text} to={x.to} onClick={() => setSideBarOpened(false)} className={({ isActive }) => `px-5 py-2.5 w-full rounded-l-3xl ${isActive ? "bg-white text-primary hover:text-blue-950" : "bg-primary text-background hover:bg-blue-950"}`}>
                             {({ isActive }) =>
                             (<div className='flex space-x-5 justify-start items-center'>
                                 <img src={isActive ? x.iconblue : x.icon} alt="teacher_icon" className='h-[25px] w-[30px]' />
@@ -76,7 +76,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
             </div>
 
 
-            <div className={` ${!doublescreen ? "flex-1 flex flex-col p-3 md:p-8 pb-0 md:pb-2 h-screen space-y-5 min-w-0" : "flex-1 min-w-0 h-screen"} `}>
+            <div className={` ${!doublescreen ? "flex-1 flex flex-col p-3 md:p-8 pb-0 md:pb-2 lg:h-screen space-y-5 min-w-0" : "flex-1 min-w-0 lg:h-screen"} `}>
                 {children}
             </div>
 

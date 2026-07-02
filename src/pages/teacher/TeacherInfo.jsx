@@ -15,7 +15,7 @@ const TeacherInfo = ({id, name = "Dimitris Vega", course = "Mathematics", img })
         items-center rounded-lg bg-white'>
         <MoreHorizontal size={20} onClick={() => setOptionOpened(!optionOpened)}
          className='absolute top-5 right-5 text-grey-300 cursor-pointer hover:text-primary' />
-        <div className={`absolute text-primary right-12 cursor-pointer top-2 z-2 border border-grey-200 rounded-md px-4 text-xs hover:bg-gray-100 py-1 shadow-lg bg-gray-200 ${optionOpened ? "inline" : "hidden"}`}>
+        <div className={`absolute text-primary right-12 cursor-pointer top-2 z-2 border border-grey-200 rounded-md px-4 text-xs hover:bg-gray-100 py-2 shadow-lg bg-gray-200 ${optionOpened ? "inline" : "hidden"}`}>
           <Link to={`/teachers/details/${id}`}>Details</Link>
         </div>
         <CircularIcon size='xl' variant='empty' />

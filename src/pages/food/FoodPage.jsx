@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom'
 import FoodRow from './FoodRow'
 import { Menu } from 'lucide-react'
 import { NavContext } from '../../contexts/NavContext'
+import { foodItemsData } from './FoodData'
 
 
 
@@ -16,58 +17,7 @@ const FoodPage = () => {
          } = useContext(NavContext);
   const [activeMenu, setActiveMenu] = useState("all");
 
-  const foodItemsData = [
-    {
-      id: 1,
-      name: "Beef Steak with Fried Potato",
-      category: "Lunch",
-      rating: 4.9,
-      totalOrders: 1456, // Rendered as 1.456 or formatted via utils
-      interest: 26,      // Percentage value for the trend indicator
-      progress: 50,      // Percentage value for the circular chart
-      image: "/assets/images/beef-steak.png" // Placeholder path for the left layout block
-    },
-    {
-      id: 2,
-      name: "Pancake with Honey",
-      category: "Breakfast",
-      rating: 4.7,
-      totalOrders: 1456,
-      interest: 26,
-      progress: 40,
-      image: "/assets/images/pancake.png"
-    },
-    {
-      id: 3,
-      name: "Japanese Beef Ramen",
-      category: "Lunch",
-      rating: 4.8,
-      totalOrders: 1456,
-      interest: 26,
-      progress: 30,
-      image: "/assets/images/beef-ramen.png"
-    },
-    {
-      id: 4,
-      name: "Mixed Salad",
-      category: "Lunch",
-      rating: 4.2,
-      totalOrders: 1456,
-      interest: 26,
-      progress: 70,
-      image: "/assets/images/mixed-salad.png"
-    },
-    {
-      id: 5,
-      name: "Beef Meatball with Vegetable",
-      category: "Snack",
-      rating: 4.5,
-      totalOrders: 1456,
-      interest: 26,
-      progress: 50,
-      image: "/assets/images/beef-meatball.png"
-    }
-  ];
+  
 
   const filteredData = React.useMemo(() => {
     switch (activeMenu) {
@@ -83,11 +33,11 @@ const FoodPage = () => {
   }, [activeMenu]);
 
   return (
-    <div className='flex-1 flex flex-col space-y-3 md:space-y-7 min-h-0 h-full m-0'>
-      <div className='mb-2'>
+    <div className='flex-1 flex flex-col space-y-7 min-h-0 h-full m-0'>
+      <div className=''>
         <GeneralHeader title={"Food"} />
       </div>
-      <CircularIcon icon={<Menu size={40} />} className="xl:hidden mb-2 text-primary mr-5 cursor-pointer" onClick={() => setSideBarOpened(!sideBarOpened)} />
+      <CircularIcon icon={<Menu size={40} />} className="xl:hidden -translate-y-3 mb-2 text-primary mr-5 cursor-pointer" onClick={() => setSideBarOpened(!sideBarOpened)} />
 
       <div className='bg-white p-5 flex min-h-0 min-w-0 flex-col justify-between flex-1 rounded-xl'>
         <div className='flex flex-col flex-1 min-h-0 min-w-0 space-y-5'>
@@ -110,7 +60,7 @@ const FoodPage = () => {
 
           <div className='flex-1 min-h-0 min-w-0 overflow-auto scrollbar-thin'>
             <div className='flex flex-col space-y-5 flex-1 min-h-0 min-w-190'>
-              {filteredData.map((data) => <FoodRow key={data.id} type={data.category} noOfOrder={data.totalOrders}
+              {filteredData.map((data) => <FoodRow key={data.id} id={data.id} type={data.category} noOfOrder={data.totalOrders}
                 interest={data.interest} name={data.name} rating={data.rating} percentage={data.progress} />)}
             </div>
           </div>

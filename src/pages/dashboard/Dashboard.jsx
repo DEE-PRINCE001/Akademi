@@ -109,18 +109,7 @@ const Dashboard = () => {
           {/* The Header */}
           <GeneralHeader title={"Dashboard"} searchBox />
         </div>
-        {/* <div className={`relative flex flex-col space-y-2 lg:flex-row justify-between lg:items-center w-full`}>
-                <h1 className='text-2xl text-primary-text font-bold'>Dashboard</h1>
-
-                <CircularIcon variant={"primary"} children="A" className='absolute text-white top-1 right-1 md:hidden' 
-                onClick={() => setProfileOpened(!profileOpened)}/>
-                
-                <div className='flex justify-center space-x-5 items-center mt-5 mb-0 lg:hidden'>
-                  <Menu size={40} className="md:hidden" onClick={() => setSideBarOpened(!sideBarOpened)}/>
-                  <SearchBox size="mb"/> 
-                  </div>
-                <SearchBox className="hidden lg:flex"/>
-            </div> */}
+      
 
         {/* the body */}
         {/* <div className='p-5 xl:p-7 rounded-xl bg-white'> */}
@@ -208,7 +197,7 @@ const Dashboard = () => {
       {/* </div> */}
 
       {/* the rightbar */}
-      <div className='relative bg-white h-full flex flex-col justify-between'>
+      <div className='relative hidden bg-white h-full lg:flex flex-col justify-between'>
         <div className='sticky top-0 bg-transparent backdrop-blur-xl h-60'></div>
 
         <div className='hidden relative lg:flex flex-col w-70 p-6

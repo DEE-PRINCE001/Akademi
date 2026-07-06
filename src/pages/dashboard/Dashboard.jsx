@@ -16,8 +16,10 @@ import MessageRow from './MessageRow'
 import FoodMenu from './FoodMenu'
 import { SchoolCalendar } from './SchoolCalendar'
 import { SchoolFinanceChart } from './SchoolFinance'
+import {students} from '../../pages/student/StudentData'
 
 const Dashboard = () => {
+  const studentData = students.slice(0, 4);
 
   const { sideBarOpened,
     setSideBarOpened,
@@ -224,10 +226,9 @@ const Dashboard = () => {
           {/* Messages */}
           <div className='flex flex-col space-y-5'>
             <h1 className='font-bold text-primary-text text-lg'>Messages</h1>
-            <MessageRow message='The best is yet to come, you know that right?' name={"Samantha William"} />
-            <MessageRow message='The best is yet to come, you know that right?' name={"Samantha William"} />
-            <MessageRow message='The best is yet to come, you know that right?' name={"Samantha William"} />
-            <MessageRow message='The best is yet to come, you know that right?' name={"Samantha William"} />
+            {studentData.map((x) => <MessageRow key={x.id} id={x.id}
+              message='The best is yet to come, you know that right?' name={x.name} notification={"3"} />)}
+
             <Button colors={"bg-grey-300/30 text-primary border-none hover:text-white hover:bg-primary"}
               size={"w-full p-3 font-semibold text-sm"} className={"cursor-pointer"}>View More</Button>
           </div>

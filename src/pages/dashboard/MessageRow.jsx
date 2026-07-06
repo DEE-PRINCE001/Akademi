@@ -1,10 +1,11 @@
 import React from 'react'
 import CircularIcon from '../../components/labels/CircularIcon'
+import { Link } from 'react-router-dom'
 
 
-const MessageRow = ({ name, message = "", time, notification, softborder, profile}) => {
+const MessageRow = ({ id, name, message = "", time, notification, softborder, profile}) => {
   return (
-    <div className={`flex relative justify-start pt-1 border-b ${softborder ? "border-grey-200/10 pb-2" : "border-grey-300 pb-5"}`}>
+    <Link to={`/chat/${id}`} className={`flex relative justify-start pt-1 border-b cursor-pointer ${softborder ? "border-grey-200/10 pb-2" : "border-grey-300 pb-5"}`}>
       <div className='flex space-x-3 justify-center flex-1'>
         <CircularIcon variant={profile || "empty"} size='xm' />
         <div className='flex flex-1 flex-col space-y-1 justify-between'>
@@ -19,7 +20,7 @@ const MessageRow = ({ name, message = "", time, notification, softborder, profil
 
       <p className='absolute right-0 top-0 text-grey-300 text-[10px]'>{time || "05:17PM"}</p>
 
-    </div>
+    </Link>
   )
 }
 

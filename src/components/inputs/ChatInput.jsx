@@ -37,7 +37,7 @@ const ChatInput = forwardRef(({
       {/* Input Text Field */}
       <input
         ref={ref}
-        type="text"
+        type="textarea"
         value={value}
         onChange={onChange}
         onKeyDown={handleKeyDown}
@@ -45,7 +45,7 @@ const ChatInput = forwardRef(({
         disabled={disabled}
         className="
           flex-1 bg-transparent text-sm text-primary-text 
-          placeholder:text-grey-300 focus:outline-none py-2 mr-3
+          placeholder:text-grey-300 focus:outline-none py-2 mr-1 md:mr-3
         "
         {...props}
       />
@@ -74,12 +74,12 @@ const ChatInput = forwardRef(({
         
         className="
           bg-primary hover:bg-primary/90 disabled:bg-grey-200 disabled:text-grey-300
-          text-white rounded-full px-5 py-2.5 flex items-center gap-x-2 
+          text-white rounded-full px-3 md:px-5 py-2.5 flex items-center gap-x-2 
           text-sm font-bold transition-all duration-200 shrink-0 select-none
           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary
         "
       >
-        <span>Send</span>
+        <span className='hidden md:inline'>Send</span>
         <Send size={16} strokeWidth={2.5} className='rotate-45' />
       </button>
     </div>

@@ -102,17 +102,24 @@ function App() {
               <StudentDetailsPage/> */}
           </Sidebar>} />
 
-          <Route path='/chat' element={<Sidebar>
+          <Route path='/chat'>
+            <Route index element={<Sidebar>
+              <ChatPage />
+            </Sidebar>} />
+          
+
+          <Route path=':id' element={<Sidebar>
             <ChatPage />
           </Sidebar>} />
+        </Route>
 
-          <Route path='/latest-activity' element={<Sidebar>
-            <LatestActivityPage />
-            {/* <ActivityTimeline/> */}
-          </Sidebar>} />
+        <Route path='/latest-activity' element={<Sidebar>
+          <LatestActivityPage />
+          {/* <ActivityTimeline/> */}
+        </Sidebar>} />
 
-        </Routes>
-      </NavContext.Provider>
+      </Routes>
+    </NavContext.Provider >
     </>
   )
 }

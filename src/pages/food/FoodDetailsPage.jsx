@@ -12,6 +12,7 @@ import FoodComment from './FoodComment'
 import { foodItemsData } from './FoodData'
 import { useNavigate, useParams } from 'react-router-dom'
 import CircularIcon from '../../components/labels/CircularIcon'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 
 const FoodDetailsPage = () => {
@@ -20,27 +21,34 @@ const FoodDetailsPage = () => {
     const food = foodItemsData.find((x) => x.id == Number(id));
 
     return (
-        <div className='flex-1 flex flex-col lg:min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
-            <div className='relative md:w-[72%]'>
-                <GeneralHeader title={"Food Details"} searchBox backButton/>
-                <div className='absolute top-9 left-0 cursor-pointer hidden xl:inline'>
-                    <CircularIcon size='sm' onClick={() => navigate(-1)}
-                        icon={<ArrowLeft size={20} className='text-inherit' />} />
-                </div>
+        <div className='flex-1 flex flex-col xl:min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
 
-            </div>
+
+            <HeaderContainer className={"mb-3 xl:mb-15"}>
+                <div>
+
+                    <div className='relative mb-0'>
+                        <GeneralHeader title={"Food Details"} searchBox backButton reducedWidth />
+                        <div className=' absolute top-9 left-0 cursor-pointer hidden xl:inline'>
+                            <CircularIcon size='sm' onClick={() => navigate(-1)}
+                                icon={<ArrowLeft size={20} className='text-inherit' />} />
+                        </div>
+                    </div>
+                </div>
+            </HeaderContainer>
 
 
             <div className='flex-1 min-w-0 flex flex-col space-y-5 lg:flex-row lg:space-x-6 lg:space-y-0 w-full'>
                 <div className='flex-1 relative lg:min-h-0 bg-white overflow-auto scrollbar-none rounded-xl min-w-0 lg:w-[70%] flex h-full flex-col space-y-8 w-full p-5'>
-                    <div className='w-full flex space-x-6'>
-                        <div className='absolute top-4 right-0 cursor-pointer'>
+                    <div className='w-full flex flex-col space-y-5 sm:flex-row sm:space-y-0 sm:space-x-6'>
+                        <div className='absolute top-4 right-2 cursor-pointer'>
                             <MoreHorizontal size={20} className='text-grey-300 hover:text-primary-text' />
                         </div>
 
                         <div className='w-52 h-35 rounded-xl bg-grey-200'>
                             <img src="" alt="" />
                         </div>
+
                         <div className='flex-1 flex flex-col space-y-1.5'>
                             <div className='text-primary-text font-bold text-[14px]'>{food.name || "Beef Steak with Fried Potato"}</div>
                             <CategoryLabel type={food.category} />
@@ -50,7 +58,7 @@ const FoodDetailsPage = () => {
                         </div>
                     </div>
 
-                    <div className='flex space-x-7'>
+                    <div className='grid grid-cols-2 sm:grid-cols-4 gap-y-7 lg:gap-y-0 w-full justify-between rounded-xl'>
                         <div className='flex flex-col'>
                             <div className='text-xs font-normal text-grey-300'>Rating</div>
                             <div className='flex space-x-2 items-center font-bold'> <img src={star} alt="" className='w-3.5 h-3.5' /> <span>{food.rating || 4.9}</span></div>

@@ -15,7 +15,7 @@ const SpecialSearchLayout = ({righButtonText}) => {
     
         const navigate = useNavigate();
     return (
-        <div className='flex  flex-col-reverse md:flex-row gap-y-3 md:gap-y-0 items-center md:justify-between'>
+        <div className='flex flex-col-reverse md:flex-row gap-y-3 md:gap-y-0 items-center md:justify-between'>
             <CircularIcon icon={<Menu size={40} />} className="hidden md:flex xl:hidden text-primary mr-5 cursor-pointer" onClick={() => setSideBarOpened(!sideBarOpened)} />
             <SearchBox size="mb" />
             <div className='flex justify-between w-full md:justify-end'>

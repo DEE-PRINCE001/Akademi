@@ -52,18 +52,18 @@ const StudentRow = ({ id, name, studentId, grade = "VII A", date, parentName, ci
 
             <div className="flex items-center gap-3">
                 <CircularIcon variant='empty' />
-                <span className="font-bold text-sm">
+                <span className="font-bold text-xs md:text-sm">
                     {name || "-"}
                 </span>
             </div>
 
-            <p className="font-bold text-primary">
+            <p className="font-bold text-primary text-[10px] md:text-sm">
                 {studentId || "-"}
             </p>
 
-            <div className='text-grey-300 text-xs'>{date || "-"}</div>
-            <div className='text-primary-text text-xs'>{parentName || "-"}</div>
-            <div className='text-primary-text text-xs'>{city || "-"}</div>
+            <div className='text-grey-300 text-[10px] md:text-sm'>{date || "-"}</div>
+            <div className='text-primary-text text-[10px] md:text-sm'>{parentName || "-"}</div>
+            <div className='text-primary-text text-[10px] md:text-sm'>{city || "-"}</div>
 
             <div className="flex gap-2">
 

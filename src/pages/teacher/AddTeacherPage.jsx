@@ -5,12 +5,15 @@ import TextArea from '../../components/inputs/TextArea'
 import ImageUploader from '../../components/inputs/ImageUploader'
 import Button from '../../components/labels/Button'
 import { useNavigate } from 'react-router-dom'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 const AddTeacherPage = () => {
     const navigate = useNavigate()
     return (
-        <div className='flex-1 flex flex-col space-y-7 h-full overflow-hidden scrollbar-none w-auto m-0'>
-            <GeneralHeader title={"Add New Teacher"} />
+        <div className='flex-1 flex flex-col space-y-7 h-full w-auto m-0'>
+            <HeaderContainer className={"pb-4"}>
+                <GeneralHeader title={"Add New Teacher"} />
+            </HeaderContainer>
             <div className='flex-1 min-h-0 overflow-auto scrollbar-thin flex flex-col space-y-8'>
                 <div className='rounded-xl flex-1 min-h-0 flex flex-col space-y-8'>
                     <div>

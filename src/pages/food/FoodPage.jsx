@@ -8,6 +8,7 @@ import FoodRow from './FoodRow'
 import { Menu } from 'lucide-react'
 import { NavContext } from '../../contexts/NavContext'
 import { foodItemsData } from './FoodData'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 
 
@@ -34,10 +35,10 @@ const FoodPage = () => {
 
   return (
     <div className='flex-1 flex flex-col space-y-7 min-h-0 h-full m-0'>
-      <div className=''>
+      <HeaderContainer className={"mb-0"}>
         <GeneralHeader title={"Food"} />
-      </div>
-      <CircularIcon icon={<Menu size={40} />} className="xl:hidden -translate-y-3 mb-2 text-primary mr-5 cursor-pointer" onClick={() => setSideBarOpened(!sideBarOpened)} />
+      <CircularIcon icon={<Menu size={40} />} className="xl:hidden -translate-y-3 mb-0 text-primary mr-5 cursor-pointer" onClick={() => setSideBarOpened(!sideBarOpened)} />
+      </HeaderContainer>
 
       <div className='bg-white p-5 flex min-h-0 min-w-0 flex-col justify-between flex-1 rounded-xl'>
         <div className='flex flex-col flex-1 min-h-0 min-w-0 space-y-5'>

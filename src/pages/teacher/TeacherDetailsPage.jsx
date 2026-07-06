@@ -6,6 +6,7 @@ import { ArrowBigLeftIcon, ArrowLeft, Contact, Mail, MapPin, MoreHorizontal, Pho
 import CircularIcon from '../../components/labels/CircularIcon'
 import { useNavigate, useParams } from 'react-router-dom'
 import { teachers } from './TeacherData'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 
 const TeacherDetailsPage = ({ name, course, education, location, phone, email, about, expertise }) => {
@@ -14,9 +15,9 @@ const TeacherDetailsPage = ({ name, course, education, location, phone, email, a
     const navigate = useNavigate()
     return (
         <div className='flex-1 flex flex-col min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
-            <div className='md:w-[72%]'>
-                <GeneralHeader title={"Teacher Details"} searchBox />
-            </div>
+            <HeaderContainer>             
+                <GeneralHeader title={"Teacher Details"} searchBox reducedWidth />            
+            </HeaderContainer>
 
             <div className='flex-1 bg-background min-h-0 min-w-0 overflow-auto scrollbar-none
       flex h-full flex-col space-y-5 lg:flex-row lg:space-x-6 lg:space-y-0 w-full'>

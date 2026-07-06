@@ -8,6 +8,7 @@ import SearchBox from '../../components/inputs/SearchBox'
 import MessageRow from '../dashboard/MessageRow'
 import Button from '../../components/labels/Button'
 import Message from './Message'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 
 
@@ -74,9 +75,9 @@ const ChatPage = ({ name, status }) => {
   }, [messages])
   return (
     <div className='flex-1 flex flex-col space-y-3 md:space-y-7 min-h-0 h-full m-0'>
-      <div className='md:w-[67%] xl:w-[72%]'>
-        <GeneralHeader title={"Chats"} searchBox />
-      </div>
+      <HeaderContainer>
+        <GeneralHeader title={"Chats"} searchBox reducedWidth/>
+      </HeaderContainer>
       <div className='flex-1 min-h-0 rounded-2xl bg-white flex'>
 
 

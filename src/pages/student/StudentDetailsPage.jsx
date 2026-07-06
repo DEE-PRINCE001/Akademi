@@ -10,6 +10,7 @@ import rarrow from '../../assets/icons/arrow-right.svg'
 import larrow from '../../assets/icons/arrow-left.svg'
 import { students } from './StudentData'
 import { useNavigate, useParams } from 'react-router-dom'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 
 const StudentDetailsPage = ({ name, course, education, location, phone, email, about, expertise }) => {
@@ -19,10 +20,11 @@ const StudentDetailsPage = ({ name, course, education, location, phone, email, a
 
     return (
         <div className='flex-1 flex flex-col min-h-0 space-y-3 md:space-y-7 w-auto m-0'>
-            <div className='md:w-[72%]'>
+            <HeaderContainer>
 
-                <GeneralHeader title={"Student Details"} searchBox />
-            </div>
+                <GeneralHeader title={"Student Details"} searchBox reducedWidth />
+            </HeaderContainer>
+            
 
             <div className='flex-1 min-h-0 min-w-0 flex h-full flex-col space-y-5 md:flex-row md:space-x-6 md:space-y-0 w-full'>
                 <div className='flex-1 min-h-0 overflow-auto scrollbar-none rounded-xl min-w-0 md:w-[70%] flex h-full flex-col space-y-5 w-full pb-3'>
@@ -46,7 +48,7 @@ const StudentDetailsPage = ({ name, course, education, location, phone, email, a
                                 <p className='text-xs font-semibold text-grey-300 leading-none'>Student</p>
                             </div>
 
-                            <div className='flex flex-col space-y-2 md:flex-row md:space-x-5 md:space-y-0'>
+                            <div className='flex flex-col space-y-2 lg:flex-row lg:space-x-5 lg:space-y-0'>
 
                                 <div className='flex space-x-5 mb-5'>
                                     <div className='flex flex-col space-y-1'>
@@ -84,8 +86,8 @@ const StudentDetailsPage = ({ name, course, education, location, phone, email, a
                             </div>
                         </div>
                         <div className='absolute top-7 left-7 z-2 bg-grey-200 w-30 h-30 rounded-full border-5 border-white'>            </div>
-                        <div className='absolute top-12 right-40 w-40 h-40 rounded-xl  bg-secondary'></div>
-                        <div className='absolute top-5 right-7 w-50 h-50 rounded-xl bg-accent'></div>
+                        <div className='absolute top-12 right-20 sm:right-30 md:right-40 w-25 sm:w-34 md:w-40 h-40 rounded-xl  bg-secondary'></div>
+                        <div className='absolute top-5 right-7 w-30 sm:w-40 md:w-50 h-50 rounded-xl bg-accent'></div>
 
                     </div>
 

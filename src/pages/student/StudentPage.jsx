@@ -13,6 +13,7 @@ import rarrow from '../../assets/icons/arrow-right.svg'
 import { useNavigate } from 'react-router-dom';
 import SpecialSearchLayout from '../../components/Layout/SpecialSearchLayout';
 import { students } from './StudentData'
+import HeaderContainer from '../../components/Layout/HeaderContainer';
 
 
 const StudentPage = () => {
@@ -24,14 +25,14 @@ const StudentPage = () => {
     setProfileOpened } = useContext(NavContext);
   return (
     <div className='flex-1 flex min-w-0 flex-col space-y-5 md:space-y-7 h-full w-auto m-0'>
-      <div className='min-h-0 h-fit min-w-0'>
-
+      {/* <div className='flex flex-col space-y-5 md:space-y-7 min-h-0 h-fit min-w-0 sticky top-0 pt-4 pb-2 lg:pt-8 z-20 bg-background/50 backdrop-blur-xl'> */}
+      <HeaderContainer>
         <GeneralHeader title={"Students"} />
-      </div>
-      <div>
-
-        <SpecialSearchLayout />
-      </div>
+        <div>
+          <SpecialSearchLayout />
+        </div>
+      </HeaderContainer>
+      {/* </div> */}
 
       <div className='flex-1 flex flex-col min-h-0 max-w-full min-w-0 bg-white rounded-xl'>
 
@@ -39,7 +40,7 @@ const StudentPage = () => {
 
           <div className='min-h-0'>
 
-            <div className='min-w-200'>
+            <div className='min-w-250'>
 
               <Header selected={students.selected} />
 

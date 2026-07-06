@@ -13,6 +13,7 @@ import StatCard from './StatCard'
 import { SparkLine } from './SparkLine'
 import TrendingRow from '../../components/labels/TrendingRow'
 import UnpaidStudentSection from './UnpaidStudentSection'
+import HeaderContainer from '../../components/Layout/HeaderContainer'
 
 
 const FinancePage = () => {
@@ -77,9 +78,9 @@ const FinancePage = () => {
 
   return (
     <div className='flex-1 flex flex-col space-y-3 md:space-y-7 min-h-0 h-full m-0 mb-5'>
-      <div className='md:w-[72%]'>
-        <GeneralHeader title={"Finance"} searchBox />
-      </div>
+      <HeaderContainer>
+        <GeneralHeader title={"Finance"} searchBox reducedWidth />
+      </HeaderContainer>
       <div className='flex-1 flex flex-col space-y-2 md:space-y-7 overflow-auto scrollbar-none'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6'>
           {data.map((x) => <StatCard title={x.title} value={x.value} percentage={x.percentage} iconVariant={x.iconVariant} icon={x.icon} />)}

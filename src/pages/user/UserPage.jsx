@@ -17,7 +17,7 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
     <div className={`lg:flex h-full`} >
       <div className='relative flex-1 flex flex-col w-full px-2 md:p-8 md:pt-0 
               pb-0 h-screen space-y-5 overflow-y-auto scrollbar-none'>
-        <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full bg-background/50 backdrop-blur-xl z-5'>
+        <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full bg-background z-5'>
 
           {/* The Header */}
           <GeneralHeader title={"User Dashboard"} searchBox />
@@ -49,7 +49,7 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
                 </div>
 
                 {/* right side */}
-                <div className='flex space-x-15'>
+                <div className='flex flex-col space-y-5 sm:space-y-0 sm:flex-row sm:space-x-15'>
                   {/* <div className='flex flex-col space-y-5 sm:flex-row sm:space-x-15 sm:space-y-0'></div> */}
                   <div className='flex flex-col space-y-2'>
                     <p className='text-[12px] text-grey-300'>Phone:</p>
@@ -70,8 +70,8 @@ const UserPage = ({ name, course, education, location, phone, email, about, expe
             </div>
 
             <div className='absolute top-7 left-7 z-2 bg-grey-200 w-30 h-30 rounded-full border-5 border-white'>            </div>
-            <div className='absolute top-12 right-40 w-40 h-40 rounded-full  bg-secondary'></div>
-            <div className='absolute top-5 right-7 w-50 h-50 rounded-full bg-accent'></div>
+            <div className='absolute top-12 right-20 md:top-12 md:right-40 w-40 h-40 md:w-40 md:h-40 rounded-full  bg-secondary'></div>
+            <div className='absolute top-8 right-3 md:top-5 md:right-7 w-40 h-40 md:w-50 md:h-50 rounded-full bg-accent'></div>
           </div>
 
           {/* Contact and message Section */}

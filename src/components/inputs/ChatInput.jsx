@@ -28,8 +28,8 @@ const ChatInput = forwardRef(({
 
   return (
     <div className={`
-      flex items-center bg-white rounded-full pl-6 pr-1 py-1 w-full
-      border border-grey-200 transition-all duration-200
+      flex items-center bg-white rounded-full pl-6 pr-1 py-1 w-full min-w-0
+      border overflow-x-hidden border-grey-200 transition-all duration-200
       focus-within:ring-1 focus-within:ring-primary focus-within:border-primary
       ${disabled ? 'opacity-60 pointer-events-none' : ''}
       ${className}
@@ -44,7 +44,7 @@ const ChatInput = forwardRef(({
         placeholder={placeholder}
         disabled={disabled}
         className="
-          flex-1 bg-transparent text-sm text-primary-text 
+          flex-1 min-w-0 bg-transparent text-sm text-primary-text 
           placeholder:text-grey-300 focus:outline-none py-2 mr-1 md:mr-3
         "
         {...props}

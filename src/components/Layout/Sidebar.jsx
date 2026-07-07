@@ -76,7 +76,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
             </div>
 
 
-            <div className={` ${!doublescreen ? "flex-1 flex flex-col px-4 md:px-8 md:pt-0 pt-0 pb-2 h-screen md:pb-2 lg:h-screen min-w-0" : "flex-1 min-h-0 min-w-0 mb-2 lg:h-screen"} `}>
+            <div className={` ${!doublescreen ? "flex-1 flex flex-col px-4 md:px-8 md:pt-0 pt-0 pb-2 h-screen md:pb-2 lg:h-screen min-w-0" : "flex-1 overflow-hidden border-4 border-secondary min-h-0 min-w-0 mb-2 lg:h-screen"} `}>
                 {children}
             </div>
 

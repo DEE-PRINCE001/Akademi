@@ -16,7 +16,7 @@ const EventPage = () => {
       <div className='flex-1 min-h-0 bg-background overflow-auto scrollbar-none
       flex h-full flex-col space-y-5 lg:flex-row lg:space-x-6 lg:space-y-0 '>
 
-        <div className='flex-1 flex min-w-0 lg:w-[70%] min-h-0 overflow-auto'>
+        <div className='flex-1 flex min-w-0 lg:w-[70%] min-h-fit lg:overflow-auto'>
           <div className='flex-1 flex lg:min-h-full w-full overflow-x-auto rounded-md'>
             <Calendar />
 

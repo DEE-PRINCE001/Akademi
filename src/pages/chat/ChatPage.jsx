@@ -129,7 +129,7 @@ const ChatPage = ({ name, status }) => {
         </div>
 
         {/* ChatWindow */}
-        <div className={`flex-1 min-w-0 ${!student ? 'hidden' : 'flex'} md:flex md:flex-col`}>
+        <div className={`flex-1 min-h-0 min-w-0 ${!student ? 'hidden' : 'flex'} md:flex md:flex-col`}>
 
           <div className='flex-1 min-w-0 flex flex-col h-full'>
             {student && (

@@ -32,7 +32,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
     }, [])
 
     return (
-        <div className='flex min-h-0 bg-background w-full h-full relative'>
+        <div className='flex min-h-0 bg-background w-full h-screen relative'>
             <div className={`fixed top-4.5 right-3 md:right-8 lg:top-8 flex items-center space-x-4 z-40`}>
                 <div className={`${profileOpened ? "flex" : "hidden"} sm:flex items-center space-x-4`}>
 
@@ -76,7 +76,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
             </div>
 
 
-            <div className={` ${!doublescreen ? "flex-1 flex flex-col px-4 md:px-8 md:pt-0 pt-0 pb-2 h-screen min-h-0 md:pb-2 lg:h-screen min-w-0" : "flex-1 overflow-hidden min-h-0 min-w-0 mb-2 h-screen"} `}>
+            <div className={` ${!doublescreen ? "flex-1 flex flex-col px-4 md:px-8 md:pt-0 pt-0 pb-2 h-screen border-6 border-success overflow-hidden md:pb-2 lg:h-screen min-w-0" : "flex-1 overflow-hidden min-h-0 min-w-0 mb-2 h-screen"} `}>
                 {children}
             </div>
 

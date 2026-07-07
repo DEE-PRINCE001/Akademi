@@ -104,7 +104,7 @@ const ChatPage = ({ name, status }) => {
 
 
 
-        <div className={`min-h-0 ${student ? 'hidden' : 'flex'} md:flex overflow-auto scrollbar-thin w-full md:w-80 border-r border-grey-200 p-5`}>
+        <div className={`min-h-0 ${student ? 'hidden' : 'flex'} md:flex scrollbar-thin w-full md:w-80 border-r border-grey-200 p-5`}>
           <div className='flex flex-col space-y-4 w-full'>
 
             <h1 className='font-bold text-primary-text text-lg pb-'>Messages</h1>

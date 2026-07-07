@@ -32,7 +32,7 @@ const Sidebar = ({ children, doublescreen = false }) => {
     }, [])
 
     return (
-        <div className='flex bg-background w-full h-full relative'>
+        <div className='flex min-h-0 bg-background w-full h-full relative'>
             <div className={`fixed top-4.5 right-3 md:right-8 lg:top-8 flex items-center space-x-4 z-40`}>
                 <div className={`${profileOpened ? "flex" : "hidden"} sm:flex items-center space-x-4`}>
 

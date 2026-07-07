@@ -103,7 +103,7 @@ const Dashboard = () => {
   ]
   return (
     // <div className={`flex-1 lg:flex m-0 w-auto`} >
-    <div className={`flex-1 lg:flex min-h-0 border-8 overflow-hidden min-w-0 h-full`} >
+    <div className={`flex-1 lg:flex min-h-0 overflow-hidden min-w-0 h-full`} >
       <div className='relative flex-1 min-w-0 flex flex-col w-full px-4 md:p-8 md:pt-0 
             pb-0 h-screen space-y-5 overflow-y-auto scrollbar-none'>
         <div className='pt-3 md:pt-7 md:pb-3 sticky top-0 w-full flex-1 min-w-0 bg-background z-1'>

@@ -96,7 +96,7 @@ const ChatPage = ({ name, status }) => {
     }
   }, [messages])
   return (
-    <div className='flex flex-col space-y-3 border-6 border-accent md:space-y-7 overflow-hidden min-h-0 h-screen m-0'>
+    <div className='flex flex-col space-y-3 md:space-y-7 overflow-hidden min-h-0 h-screen m-0'>
       <HeaderContainer>
         <GeneralHeader title={"Chats"} searchBox reducedWidth />
       </HeaderContainer>
